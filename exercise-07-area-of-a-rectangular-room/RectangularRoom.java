@@ -1,5 +1,5 @@
 /**
- * A program that that calculates the area of a room.
+ * A program that calculates the area of a room.
  * Exercise 7 Area of a Rectangular Room, Exercises for Programmers by Brian Hogan
  *
  * @author James Schmidt
@@ -7,7 +7,7 @@
 class RectangularRoom {
 	public static void main(String[] args) {
 		final double FEET_TO_METERS = 0.09290304;
-		
+
 		String input = System.console().readLine("What is the length of the room in feet? ");
 		int length = Integer.parseInt(input);
 
