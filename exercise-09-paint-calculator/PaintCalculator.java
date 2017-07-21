@@ -7,7 +7,7 @@
 class PaintCalculator {
 	public static void main(String[] args) {
 		final int ONE_GALLON = 350;
-		
+
 		String input = System.console().readLine("What is length of the ceiling? ");
 		int length = Integer.parseInt(input);
 
