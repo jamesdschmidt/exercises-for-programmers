@@ -9,19 +9,19 @@ class SelfCheckout {
 		final double TAX_RATE = 0.055;
 
 		String input = System.console().readLine("Enter the price of item 1: ");
-		double item1Price = Integer.parseInt(input);
+		double item1Price = Double.parseDouble(input);
 
 		input = System.console().readLine("Enter the quantity of item 1: ");
 		int item1Quantity = Integer.parseInt(input);
 		
 		input = System.console().readLine("Enter the price of item 2: ");
-		double item2Price = Integer.parseInt(input);
+		double item2Price = Double.parseDouble(input);
 
 		input = System.console().readLine("Enter the quantity of item 2: ");
 		int item2Quantity = Integer.parseInt(input);
 		
 		input = System.console().readLine("Enter the price of item 3: ");
-		double item3Price = Integer.parseInt(input);
+		double item3Price = Double.parseDouble(input);
 
 		input = System.console().readLine("Enter the quantity of item 3: ");
 		int item3Quantity = Integer.parseInt(input);
