@@ -8,14 +8,17 @@ import java.util.Locale;
 */
 class NumbersToNames {
 	public static void main(String[] args) {
-		String input = System.console().readLine("Please enter the number of the month: ");
+		String input = System.console().readLine("Please enter the language (en): ");
+		Locale locale = new Locale(input);
+
+		input = System.console().readLine("Please enter the number of the month: ");
 		int number = Integer.parseInt(input);
 
 		String month = "invalid";
 		if (number >= 1 && number <= 12) {
 			Calendar calendar = Calendar.getInstance();
 			calendar.set(Calendar.MONTH, number - 1);
-			month = calendar.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.ENGLISH);
+			month = calendar.getDisplayName(Calendar.MONTH, Calendar.LONG, locale);
 		}
 
 		System.out.format("The name of the month is %s.%n", month);
