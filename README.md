@@ -1,7 +1,9 @@
 # Exercises for Programmers
-Here is my collection of solutions written in Java to the challenges found in Brian Hogan's book [Exercises for Programmers](https://pragprog.com/book/bhwb/exercises-for-programmers).
+Here is my collection of solutions written in Java to the challenges found in Brian Hogan's book [Exercises for Programmers](https://pragprog.com/book/bhwb/exercises-for-programmers).  
+The Java command line tools and a text editor were used to keep the source as simple and noise-free as possible.
 
 ## Chapter 1 Turning Problems into Code
+Exercise 0 Tip Calculator
 ## Chapter 2 Input, Processing, and Output
 [Exercise 1 Saying Hello](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/exercise-01-saying-hello)  
 [Exercise 2 Counting the Number of Characters](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/exercise-02-counting-characters)  
