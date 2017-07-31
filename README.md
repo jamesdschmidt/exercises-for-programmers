@@ -1,6 +1,6 @@
 # Exercises for Programmers
 Here is my collection of solutions written in Java to the challenges found in Brian Hogan's book [Exercises for Programmers](https://pragprog.com/book/bhwb/exercises-for-programmers).  
-The Java command line tools and a text editor were used to keep the source as simple and noise-free as possible.
+The Java command line tools and a text editor were used to keep the source simple and noise-free.
 
 ## Chapter 1 Turning Problems into Code
 Exercise 0 Tip Calculator
