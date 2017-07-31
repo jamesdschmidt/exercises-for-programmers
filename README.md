@@ -3,7 +3,8 @@ Here is my collection of solutions written in Java to the challenges found in Br
 
 ## Chapter 1 Turning Problems into Code
 ## Chapter 2 Input, Processing, and Output
-[Exercise 1 Saying Hello](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/exercise-01-saying-hello)
+[Exercise 1 Saying Hello](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/exercise-01-saying-hello)  
+[Exercise 2 Counting the Number of Characters](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/exercise-02-counting-characters)  
 ## Chapter 3 Calculations
 ## Chapter 4 Making Decisions
 ## Chapter 5 Functions
