@@ -1,6 +1,6 @@
 /**
  * A program to determine the complexity of a password.
- * Exercise 24 Password Strength Indicator, Exercises for Programmers by Brian Hogan
+ * Exercise 25 Password Strength Indicator, Exercises for Programmers by Brian Hogan
  *
  * @author James Schmidt
 */
