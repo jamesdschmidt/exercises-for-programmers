@@ -20,7 +20,19 @@ Exercise 0 Tip Calculator
 [Exercise 12 Computing Simple Interest](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/exercise-12-computing-simple-interest)  
 [Exercise 13 Determining Compound Interest](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/exercise-13-determining-compound-interest)
 ## Chapter 4 Making Decisions
+[Exercise 14 Tax Calculator](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/exercise-14-tax-calculator)  
+[Exercise 15 Password Validation](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/exercise-15-password-validation)  
+[Exercise 16 Legal Driving Age](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/exercise-16-legal-driving-age)  
+[Exercise 17 Blood Alcohol Calculator](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/exercise-17-blood-alcohol-calculator)  
+[Exercise 18 Temperature Converter](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/exercise-18-temperature-converter)  
+[Exercise 19 BMI Calculator](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/exercise-19-bmi-calculator)  
+[Exercise 20 Multistate Sales Tax Calculator](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/exercise-20-multistate-sales-tax-calculator)  
+[Exercise 21 Numbers to Names](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/exercise-21-numbers-to-names)  
+[Exercise 22 Comparing Numbers](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/exercise-22-comparing-numbers)  
+[Exercise 23 Troubleshooting Car Issues](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/exercise-23-troubleshooting-car-issues)
 ## Chapter 5 Functions
+[Exercise 24 Anagram Checker](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/exercise-24-anagram-checker)  
+[Exercise 25 Password Strength Indicator](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/exercise-25-password-strength-indicator)
 ## Chapter 6 Repetition
 ## Chapter 7 Data Structures
 ## Chapter 8 Working with Files
