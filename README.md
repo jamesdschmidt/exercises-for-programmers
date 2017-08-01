@@ -32,9 +32,41 @@ Exercise 0 Tip Calculator
 [Exercise 23 Troubleshooting Car Issues](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/exercise-23-troubleshooting-car-issues)
 ## Chapter 5 Functions
 [Exercise 24 Anagram Checker](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/exercise-24-anagram-checker)  
-[Exercise 25 Password Strength Indicator](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/exercise-25-password-strength-indicator)
+[Exercise 25 Password Strength Indicator](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/exercise-25-password-strength-indicator)  
+Exercise 26 Months to Pay Off a Credit Card  
+Exercise 27 Validating Inputs
 ## Chapter 6 Repetition
+Exercise 28 Adding Numbers  
+Exercise 29 Handling Bad Input  
+Exercise 30 Multiplication Table  
+Exercise 31 Karvonen Heart Rate  
+Exercise 32 Guess the Number Game
 ## Chapter 7 Data Structures
+Exercise 33 Magic 8 Ball  
+Exercise 34 Employee List Removal  
+Exercise 35 Picking a Winner  
+Exercise 36 Computing Statistics  
+Exercise 37 Password Generator  
+Exercise 38 Filtering Values  
+Exercise 39 Sorting Records  
+Exercise 40 Filtering Records
 ## Chapter 8 Working with Files
+Exercise 41 Name Sorter  
+Exercise 42 Parsing a Data File  
+Exercise 43 Website Generator  
+Exercise 44 Product Search  
+Exercise 45 Word Finder  
+Exercise 46 Word Frequency Finder
 ## Chapter 9 Working with External Services
+Exercise 47 Who's in Space?  
+Exercise 48 Grabbing the Weather  
+Exercise 49 Flickr Photo Search  
+Exercise 50 Movie Recommendations  
+Exercise 51 Pushing Notes to Firebase  
+Exercise 52 Creating Your Own Time Service
 ## Chapter 10 Full Programs
+Exercise 53 Todo List  
+Exercise 54 URL Shortener  
+Exercise 55 Text Sharing  
+Exercise 56 Tracking Inventory  
+Exercise 57 Trivia App
