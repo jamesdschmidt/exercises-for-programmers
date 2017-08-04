@@ -11,6 +11,6 @@ class MadLib {
 		String adjective = System.console().readLine("Enter an adjective: ");
 		String adverb = System.console().readLine("Enter an adverb: ");
 
-		System.out.format("Do you %s your %s %s %s? That's hilarious!\n", verb, adjective, noun, adverb);
+		System.out.printf("Do you %s your %s %s %s? That's hilarious!\n", verb, adjective, noun, adverb);
 	}
 }

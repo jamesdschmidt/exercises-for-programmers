@@ -11,7 +11,7 @@ class PasswordStrengthIndicator {
 		int strength = passwordValidator(password);
 		String passwordStrength = getPasswordStrength(strength);
 
-		System.out.format("The password '%s' is a %s password.%n", password, passwordStrength);
+		System.out.printf("The password '%s' is a %s password.%n", password, passwordStrength);
 	}
 
 	private static String getPasswordStrength(int strength) {

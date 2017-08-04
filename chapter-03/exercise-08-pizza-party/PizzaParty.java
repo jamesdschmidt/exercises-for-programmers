@@ -18,8 +18,8 @@ class PizzaParty {
 		int slicesEach = (pizzas * slices) / people;
 		int remainder = (pizzas * slices) % people;
 
-		System.out.format("%n%d people with %d pizza%n", people, pizzas);
-		System.out.format("Each person gets %d piece of pizza.%n", slicesEach);
-		System.out.format("There are %d leftover pieces.%n", remainder);
+		System.out.printf("%n%d people with %d pizza%n", people, pizzas);
+		System.out.printf("Each person gets %d piece of pizza.%n", slicesEach);
+		System.out.printf("There are %d leftover pieces.%n", remainder);
 	}
 }

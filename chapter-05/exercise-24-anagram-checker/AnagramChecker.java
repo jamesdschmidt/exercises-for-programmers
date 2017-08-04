@@ -14,7 +14,7 @@ class AnagramChecker {
 
 		boolean isAnagram = isAnagram(first, second);
 
-		System.out.format("\"%s\" and \"%s\" are %s%n", first, second, (isAnagram ? "anagrams" : "not anagrams"));
+		System.out.printf("\"%s\" and \"%s\" are %s%n", first, second, (isAnagram ? "anagrams" : "not anagrams"));
 	}
 
 	private static boolean isAnagram(String first, String second) {

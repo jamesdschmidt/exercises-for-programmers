@@ -29,10 +29,10 @@ class BloodAlcoholCalculator {
 		BigDecimal leftOperand = volumeOperand.divide(weightOperand, RoundingMode.HALF_UP);
 		BigDecimal bloodAlcoholContent = leftOperand.subtract(hoursOperand);
 
-		System.out.format("Your BAC is %s%n", bloodAlcoholContent.setScale(3, RoundingMode.HALF_UP));
+		System.out.printf("Your BAC is %s%n", bloodAlcoholContent.setScale(3, RoundingMode.HALF_UP));
 		System.out.println("It is " + (bloodAlcoholContent.compareTo(MAX_BLOOD_ALCOHOL_CONTENT) < 1 ? "" : "not ") + "legal for you to drive.");
 	}
-	
+
 	private static BigDecimal getBigDecimal(String prompt) {
 		BigDecimal value;
 		String line = System.console().readLine(prompt);

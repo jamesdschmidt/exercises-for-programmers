@@ -17,7 +17,7 @@ class ComparingNumbers {
 
 		if (first != second && second != third && first != third) {
 			int largest = (first > second && first > third) ? first : (second > first && second > third) ? second : third;
-			System.out.format("The largest number is %d.%n", largest);
+			System.out.printf("The largest number is %d.%n", largest);
 		}
 	}
 }

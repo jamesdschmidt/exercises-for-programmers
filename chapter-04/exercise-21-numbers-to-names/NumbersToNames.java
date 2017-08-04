@@ -21,6 +21,6 @@ class NumbersToNames {
 			month = calendar.getDisplayName(Calendar.MONTH, Calendar.LONG, locale);
 		}
 
-		System.out.format("The name of the month is %s.%n", month);
+		System.out.printf("The name of the month is %s.%n", month);
 	}
 }

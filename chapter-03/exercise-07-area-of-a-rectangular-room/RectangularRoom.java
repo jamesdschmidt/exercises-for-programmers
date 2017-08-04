@@ -17,6 +17,6 @@ class RectangularRoom {
 		int area = length * width;
 		double areaInMeters = area * FEET_TO_METERS;
 
-		System.out.format("The area is%n%d square feet%n%.3f square meters%n", area, areaInMeters);
+		System.out.printf("The area is%n%d square feet%n%.3f square meters%n", area, areaInMeters);
 	}
 }

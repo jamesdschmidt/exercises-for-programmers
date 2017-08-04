@@ -19,6 +19,6 @@ class TemperatureConverter {
 			convertedTemperature = (temperature * (9 / 5.0)) + 32;
 		}
 
-		System.out.format("The temperature in " + (toCelsius ? "Celsius" : "Fahrenheit") + " is %s.%n", convertedTemperature);
+		System.out.printf("The temperature in " + (toCelsius ? "Celsius" : "Fahrenheit") + " is %s.%n", convertedTemperature);
 	}
 }

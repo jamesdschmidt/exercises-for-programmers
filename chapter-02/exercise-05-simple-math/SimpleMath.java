@@ -17,7 +17,7 @@ class SimpleMath {
 		int product = firstNumber * secondNumber;
 		int quotient = firstNumber / secondNumber;
 
-		System.out.format("%1$d + %2$d = %3$d%n%1$d - %2$d = %4$d%n%1$d * %2$d = %5$d%n%1$d / %2$d = %6$d%n",
+		System.out.printf("%1$d + %2$d = %3$d%n%1$d - %2$d = %4$d%n%1$d * %2$d = %5$d%n%1$d / %2$d = %6$d%n",
 			firstNumber, secondNumber, sum, difference, product, quotient);
 	}
 }

@@ -21,7 +21,7 @@ class RetirementCalculator {
 		if (yearsLeft < 1) {
 			System.out.println("You can already retire.");
 		} else {
-			System.out.format("You have %d years left until you can retire.%nIt's %d, so you can retire in %d.%n", yearsLeft, currentYear, retirementYear);
+			System.out.printf("You have %d years left until you can retire.%nIt's %d, so you can retire in %d.%n", yearsLeft, currentYear, retirementYear);
 		}
 	}
 }

@@ -20,6 +20,6 @@ class PaintCalculator {
 			gallonsNeeded++;
 		}
 
-		System.out.format("%nYou will need to purchase %d gallons of paint to cover %d square feet.%n", gallonsNeeded, area);
+		System.out.printf("%nYou will need to purchase %d gallons of paint to cover %d square feet.%n", gallonsNeeded, area);
 	}
 }
