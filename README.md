@@ -33,7 +33,7 @@ Exercise 0 Tip Calculator
 ## Chapter 5 Functions
 [Exercise 24 Anagram Checker](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/chapter-05/exercise-24-anagram-checker)  
 [Exercise 25 Password Strength Indicator](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/chapter-05/exercise-25-password-strength-indicator)  
-Exercise 26 Months to Pay Off a Credit Card  
+[Exercise 26 Months to Pay Off a Credit Card](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/chapter-05/exercise-26-months-to-pay-off-a-credit-card)  
 Exercise 27 Validating Inputs
 ## Chapter 6 Repetition
 Exercise 28 Adding Numbers  
