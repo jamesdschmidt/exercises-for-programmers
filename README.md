@@ -37,7 +37,7 @@ Exercise 0 Tip Calculator
 [Exercise 27 Validating Inputs](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/chapter-05/exercise-27-validating-inputs)
 ## Chapter 6 Repetition
 [Exercise 28 Adding Numbers](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/chapter-06/exercise-28-adding-numbers)  
-Exercise 29 Handling Bad Input  
+[Exercise 29 Handling Bad Input](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/chapter-06/exercise-29-handling-bad-input)  
 Exercise 30 Multiplication Table  
 Exercise 31 Karvonen Heart Rate  
 Exercise 32 Guess the Number Game
