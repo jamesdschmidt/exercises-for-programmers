@@ -36,7 +36,7 @@ Exercise 0 Tip Calculator
 [Exercise 26 Months to Pay Off a Credit Card](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/chapter-05/exercise-26-months-to-pay-off-a-credit-card)  
 [Exercise 27 Validating Inputs](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/chapter-05/exercise-27-validating-inputs)
 ## Chapter 6 Repetition
-Exercise 28 Adding Numbers  
+[Exercise 28 Adding Numbers](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/chapter-06/exercise-28-adding-numbers)  
 Exercise 29 Handling Bad Input  
 Exercise 30 Multiplication Table  
 Exercise 31 Karvonen Heart Rate  
