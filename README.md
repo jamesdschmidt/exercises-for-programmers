@@ -40,7 +40,7 @@ Exercise 0 Tip Calculator
 [Exercise 29 Handling Bad Input](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/chapter-06/exercise-29-handling-bad-input)  
 [Exercise 30 Multiplication Table](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/chapter-06/exercise-30-multiplication-table)  
 [Exercise 31 Karvonen Heart Rate](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/chapter-06/exercise-31-karvonen-heart-rate)  
-Exercise 32 Guess the Number Game
+[Exercise 32 Guess the Number Game](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/chapter-06/exercise-32-guess-the-number-game)
 ## Chapter 7 Data Structures
 Exercise 33 Magic 8 Ball  
 Exercise 34 Employee List Removal  
