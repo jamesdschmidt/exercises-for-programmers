@@ -10,12 +10,9 @@ class GuessTheNumberGame {
 	public static void main(String[] args) {
 		System.out.println("Let's play Guess the Number.");
 
-		while (true) {
+		do {
 			playGame();
-			if (!playAgain()) {
-				break;
-			}
-		}
+		} while (playAgain());
 
 		System.out.println("Goodbye!");
 	}
@@ -39,6 +36,18 @@ class GuessTheNumberGame {
 		return value;
 	}
 
+	private static String getGuessPrompt(int guess, int number) {
+		String prompt;
+		if (guess == -1) {
+			prompt = "Wrong guess. Guess again: ";
+		} else if (guess < number) {
+			prompt = "Too low. Guess again: ";
+		} else {
+			prompt = "Too high. Guess again: ";
+		}
+		return prompt;
+	}
+
 	private static int getRandomNumber(int difficulty) {
 		return ThreadLocalRandom.current().nextInt(1, (int) Math.pow(10, difficulty) + 1);
 	}
@@ -56,14 +65,7 @@ class GuessTheNumberGame {
 		int guess = getGuess("I have my number. What's your guess? ");
 		while (guess != number) {
 			tries++;
-			String prompt;
-			if (guess == -1) {
-				prompt = "Wrong guess. Guess again: ";
-			} else if (guess < number) {
-				prompt = "Too low. Guess again: ";
-			} else {
-				prompt = "Too high. Guess again: ";
-			}
+			String prompt = getGuessPrompt(guess, number);
 			guess = getGuess(prompt);
 		}
 
