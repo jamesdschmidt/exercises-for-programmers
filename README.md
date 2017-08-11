@@ -42,7 +42,7 @@ Exercise 0 Tip Calculator
 [Exercise 31 Karvonen Heart Rate](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/chapter-06/exercise-31-karvonen-heart-rate)  
 [Exercise 32 Guess the Number Game](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/chapter-06/exercise-32-guess-the-number-game)
 ## Chapter 7 Data Structures
-Exercise 33 Magic 8 Ball  
+[Exercise 33 Magic 8 Ball](https://github.com/jamesdschmidt/exercises-for-programmers/tree/master/chapter-07/exercise-33-magic-8-ball)  
 Exercise 34 Employee List Removal  
 Exercise 35 Picking a Winner  
 Exercise 36 Computing Statistics  
