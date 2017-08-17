@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * A program that prompts for response times and computes statistics.
+ * A program that generates a secure password.
  * Exercise 37 Password Generator, Exercises for Programmers by Brian Hogan
  *
  * @author James Schmidt
