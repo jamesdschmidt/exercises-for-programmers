@@ -17,25 +17,6 @@ class GuessTheNumberGame {
 		System.out.println("Goodbye!");
 	}
 
-	private static int getDifficulty() {
-		String input;
-		do {
-			input = System.console().readLine("Pick a difficulty level (1, 2, or 3): ");
-		} while (!input.matches("1|2|3"));
-		return Integer.parseInt(input);
-	}
-
-	private static int getGuess(String message) {
-		int value;
-		String input = System.console().readLine(message);
-		try {
-			value = Integer.parseInt(input);
-		} catch (NumberFormatException e) {
-			value = -1;
-		}
-		return value;
-	}
-
 	private static String getGuessPrompt(int guess, int number) {
 		String prompt;
 		if (guess == -1) {
@@ -48,8 +29,33 @@ class GuessTheNumberGame {
 		return prompt;
 	}
 
+	private static int getInt(String prompt) {
+		while (true) {
+			String input = System.console().readLine(prompt);
+			if (isInteger(input)) {
+				return Integer.parseInt(input);
+			}
+		}
+	}
+
 	private static int getRandomNumber(int difficulty) {
 		return ThreadLocalRandom.current().nextInt(1, (int) Math.pow(10, difficulty) + 1);
+	}
+
+	private static boolean isEmpty(String s) {
+		return s == null || s.length() == 0;
+	}
+
+	private static boolean isInteger(String s) {
+		if (isEmpty(s)) {
+			return false;
+		}
+		for (char c : s.toCharArray()) {
+			if (!Character.isDigit(c)) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	private static boolean playAgain() {
@@ -59,14 +65,14 @@ class GuessTheNumberGame {
 
 	private static void playGame() {
 		int tries = 1;
-		int difficulty = getDifficulty();
+		int difficulty = getInt("Pick a difficulty level (1, 2, or 3): ");
 		int number = getRandomNumber(difficulty);
 
-		int guess = getGuess("I have my number. What's your guess? ");
+		int guess = getInt("I have my number. What's your guess? ");
 		while (guess != number) {
 			tries++;
 			String prompt = getGuessPrompt(guess, number);
-			guess = getGuess(prompt);
+			guess = getInt(prompt);
 		}
 
 		System.out.printf("You got it in %d guesses!%n", tries);

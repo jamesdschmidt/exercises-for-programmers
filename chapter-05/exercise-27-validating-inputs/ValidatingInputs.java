@@ -31,7 +31,7 @@ class ValidatingInputs {
 			message += String.format("\"%s\" is not a valid last name. It is too short.\n", lastName);
 		}
 
-		if (!isNumeric(zipCode)) {
+		if (!isInteger(zipCode)) {
 			message += "The ZIP code must be numeric.\n";
 		}
 
@@ -47,14 +47,14 @@ class ValidatingInputs {
 	}
 
 	private static boolean isEmpty(String s) {
-		return s == null || s.length() < 1;
+		return s == null || s.length() == 0;
 	}
 
 	private static boolean isTooShort(String s, int minimumLength) {
 		return s == null || s.length() < minimumLength;
 	}
 
-	private static boolean isNumeric(String s) {
+	private static boolean isInteger(String s) {
 		if (isEmpty(s)) {
 			return false;
 		}

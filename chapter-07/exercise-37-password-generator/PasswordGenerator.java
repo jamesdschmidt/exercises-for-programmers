@@ -28,14 +28,18 @@ class PasswordGenerator {
 	private static int getInt(String prompt) {
 		while (true) {
 			String input = System.console().readLine(prompt);
-			if (isNumeric(input)) {
+			if (isInteger(input)) {
 				return Integer.parseInt(input);
 			}
 		}
 	}
 
-	private static boolean isNumeric(String s) {
-		if (s == null || s.isEmpty()) {
+	private static boolean isEmpty(String s) {
+		return s == null || s.length() == 0;
+	}
+
+	private static boolean isInteger(String s) {
+		if (isEmpty(s)) {
 			return false;
 		}
 		for (char c : s.toCharArray()) {

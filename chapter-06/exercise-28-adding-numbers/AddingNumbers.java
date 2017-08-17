@@ -17,16 +17,27 @@ class AddingNumbers {
 	}
 
 	private static int getInt(String prompt) {
-		int value;
-
-		String input = System.console().readLine(prompt);
-		try {
-			value = Integer.parseInt(input);
-		} catch (NumberFormatException e) {
-			System.out.println("Enter a valid number.");
-			value = getInt(prompt);
+		while (true) {
+			String input = System.console().readLine(prompt);
+			if (isInteger(input)) {
+				return Integer.parseInt(input);
+			}
 		}
+	}
 
-		return value;
+	private static boolean isEmpty(String s) {
+		return s == null || s.length() == 0;
+	}
+
+	private static boolean isInteger(String s) {
+		if (isEmpty(s)) {
+			return false;
+		}
+		for (char c : s.toCharArray()) {
+			if (!Character.isDigit(c)) {
+				return false;
+			}
+		}
+		return true;
 	}
 }

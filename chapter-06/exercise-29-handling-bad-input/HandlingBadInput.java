@@ -10,7 +10,7 @@ class HandlingBadInput {
 
 		while (true) {
 			String input = System.console().readLine("What is the rate of return? ");
-			if ("0".equals(input) || !isNumeric(input)) {
+			if ("0".equals(input) || !isInteger(input)) {
 				System.out.println("Sorry. That's not a valid input.");
 			} else {
 				rate = Integer.parseInt(input);
@@ -23,8 +23,12 @@ class HandlingBadInput {
 		System.out.printf("It will take %d years to double your initial investment.%n", years);
 	}
 
-	private static boolean isNumeric(String s) {
-		if (s == null || s.isEmpty()) {
+	private static boolean isEmpty(String s) {
+		return s == null || s.length() == 0;
+	}
+
+	private static boolean isInteger(String s) {
+		if (isEmpty(s)) {
 			return false;
 		}
 		for (char c : s.toCharArray()) {

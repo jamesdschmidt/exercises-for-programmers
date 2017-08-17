@@ -17,7 +17,7 @@ class ComputingStatistics {
 			String input = System.console().readLine("Enter a number: ");
 			if ("done".equals(input)) {
 				break;
-			} else if (isNumeric(input)) {
+			} else if (isInteger(input)) {
 				responseTimes.add(Long.parseLong(input));
 			}
 		}
@@ -72,8 +72,12 @@ class ComputingStatistics {
 		return Math.sqrt(squaredMean);
 	}
 
-	private static boolean isNumeric(String s) {
-		if (s == null || s.isEmpty()) {
+	private static boolean isEmpty(String s) {
+		return s == null || s.length() == 0;
+	}
+
+	private static boolean isInteger(String s) {
+		if (isEmpty(s)) {
 			return false;
 		}
 		for (char c : s.toCharArray()) {

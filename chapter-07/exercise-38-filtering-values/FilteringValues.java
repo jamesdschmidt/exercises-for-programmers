@@ -41,7 +41,7 @@ class FilteringValues {
 	private static String[] filterEvenNumbers(String[] numbers) {
 		List<String> list = new ArrayList<>();
 		for (String number : numbers) {
-			if (isNumeric(number) && isEven(Integer.parseInt(number))) {
+			if (isInteger(number) && isEven(Integer.parseInt(number))) {
 				list.add(number);
 			}
 		}
@@ -54,8 +54,12 @@ class FilteringValues {
 		return number % 2 == 0;
 	}
 
-	private static boolean isNumeric(String s) {
-		if (s == null || s.isEmpty()) {
+	private static boolean isEmpty(String s) {
+		return s == null || s.length() == 0;
+	}
+
+	private static boolean isInteger(String s) {
+		if (isEmpty(s)) {
 			return false;
 		}
 		for (char c : s.toCharArray()) {
