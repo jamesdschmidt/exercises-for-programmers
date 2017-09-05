@@ -17,7 +17,7 @@ Exercise 48 Grabbing the Weather, Exercises for Programmers by Brian Hogan
 ## Example Output
 
 ```bash
-Where are you? Chicago IL
-Chicago weather:
-65 degrees Fahrenheit
+Where are you? Salt Lake City
+Salt Lake City weather:
+82 degrees Fahrenheit
 ```
