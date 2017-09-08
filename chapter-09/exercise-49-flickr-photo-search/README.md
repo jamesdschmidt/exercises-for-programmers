@@ -14,5 +14,5 @@ Admittedly I got carried away with this one having prior experience in AWT, Swin
 ## How to run
 
 ```bash
-./flickr-photo-search$ java -jar target/flickr-photo-search-1.0-SNAPSHOT.jar <appid>
+./flickr-photo-search$ java -jar target/flickr-photo-search-1.0-SNAPSHOT.jar
 ```
