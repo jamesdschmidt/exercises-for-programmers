@@ -10,27 +10,27 @@ import javafx.concurrent.Task;
 
 public class FlickrSearchService extends Service<List<String>> {
 
-	private FlickrClient client = new FlickrClient();
-	private StringProperty search = new SimpleStringProperty();
-	
-	public void setSearch(String value) {
-		search.set(value);
-	}
-	
-	public String getSearch() {
-		return search.get();
-	}
-	
-	public StringProperty searchProperty() {
-		return search;
-	}
-	
-	protected Task<List<String>> createTask() {
-		final String _search = getSearch();
-		return new Task<List<String>>() {
-			protected List<String> call() {
-				return client.search(_search);
-			}
-		};
-	}
+  private FlickrClient client = new FlickrClient();
+  private StringProperty search = new SimpleStringProperty();
+
+  public void setSearch(String value) {
+    search.set(value);
+  }
+
+  public String getSearch() {
+    return search.get();
+  }
+
+  public StringProperty searchProperty() {
+    return search;
+  }
+
+  protected Task<List<String>> createTask() {
+    final String _search = getSearch();
+    return new Task<List<String>>() {
+      protected List<String> call() {
+        return client.search(_search);
+      }
+    };
+  }
 }

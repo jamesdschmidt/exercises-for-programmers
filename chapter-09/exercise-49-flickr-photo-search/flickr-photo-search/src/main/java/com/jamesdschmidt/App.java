@@ -8,11 +8,11 @@ import javafx.application.Application;
  * A program that searches Flickr.
  * Exercise 49 Flickr Photo Search, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmidt
+ * @author James Schmid
  */
 public class App {
-	
+
     public static void main(String[] args) {
-    	Application.launch(FlickrPhotoSearchController.class, args);
+      Application.launch(FlickrPhotoSearchController.class, args);
     }
 }

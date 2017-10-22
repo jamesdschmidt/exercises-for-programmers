@@ -2,21 +2,21 @@
  * A program that calculates the area of a room.
  * Exercise 7 Area of a Rectangular Room, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmidt
+ * @author James Schmid
 */
 class RectangularRoom {
-	public static void main(String[] args) {
-		final double FEET_TO_METERS = 0.09290304;
+  public static void main(String[] args) {
+    final double FEET_TO_METERS = 0.09290304;
 
-		String input = System.console().readLine("What is the length of the room in feet? ");
-		int length = Integer.parseInt(input);
+    String input = System.console().readLine("What is the length of the room in feet? ");
+    int length = Integer.parseInt(input);
 
-		input = System.console().readLine("What is the width of the room in feet? ");
-		int width = Integer.parseInt(input);
+    input = System.console().readLine("What is the width of the room in feet? ");
+    int width = Integer.parseInt(input);
 
-		int area = length * width;
-		double areaInMeters = area * FEET_TO_METERS;
+    int area = length * width;
+    double areaInMeters = area * FEET_TO_METERS;
 
-		System.out.printf("The area is%n%d square feet%n%.3f square meters%n", area, areaInMeters);
-	}
+    System.out.printf("The area is%n%d square feet%n%.3f square meters%n", area, areaInMeters);
+  }
 }

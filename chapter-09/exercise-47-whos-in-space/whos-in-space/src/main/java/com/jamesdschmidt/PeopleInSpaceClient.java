@@ -8,39 +8,39 @@ import java.net.URL;
 
 public class PeopleInSpaceClient {
 
-	private String path;
+  private String path;
 
-	public PeopleInSpaceClient(String path) {
-		this.path = path;
-	}
+  public PeopleInSpaceClient(String path) {
+    this.path = path;
+  }
 
-	public PeopleInSpace getPeople() {
-		PeopleInSpace people = null;
+  public PeopleInSpace getPeople() {
+    PeopleInSpace people = null;
 
-		try {
-			URL url = new URL(path);
-			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-			connection.setRequestMethod("GET");
-			connection.connect();
-			InputStream stream = connection.getInputStream();
-			people = parseStream(stream);
-		} catch (Throwable e) {
-			e.printStackTrace();
-		}
+    try {
+      URL url = new URL(path);
+      HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+      connection.setRequestMethod("GET");
+      connection.connect();
+      InputStream stream = connection.getInputStream();
+      people = parseStream(stream);
+    } catch (Throwable e) {
+      e.printStackTrace();
+    }
 
-		return people;
-	}
+    return people;
+  }
 
-	private PeopleInSpace parseStream(InputStream stream) {
-		PeopleInSpace people = null;
+  private PeopleInSpace parseStream(InputStream stream) {
+    PeopleInSpace people = null;
 
-		try {
-			ObjectMapper mapper = new ObjectMapper();
-			people = mapper.readValue(stream, PeopleInSpace.class);
-		} catch (Throwable e) {
-			e.printStackTrace();
-		}
+    try {
+      ObjectMapper mapper = new ObjectMapper();
+      people = mapper.readValue(stream, PeopleInSpace.class);
+    } catch (Throwable e) {
+      e.printStackTrace();
+    }
 
-		return people;
-	}
+    return people;
+  }
 }
