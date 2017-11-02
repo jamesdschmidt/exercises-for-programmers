@@ -6,6 +6,8 @@
 
 # Eclipse and Maven stuff
 .classpath
+.idea
+*.iml
 .project
 .settings/
 dependency-reduced-pom.xml
