@@ -7,7 +7,7 @@ import java.util.List;
  * A program that picks a winner for a contest or prize drawing.
  * Exercise 35 Picking a Winner, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class PickingAWinner {
   public static void main(String[] args) {

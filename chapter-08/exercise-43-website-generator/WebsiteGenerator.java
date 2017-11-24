@@ -2,7 +2,7 @@
  * A program that generates a website skeleton.
  * Exercise 43 Website Generator, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
  */
 public class WebsiteGenerator {
   public static void main(String[] args) {

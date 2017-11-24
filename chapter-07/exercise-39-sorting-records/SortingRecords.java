@@ -8,7 +8,7 @@ import java.util.Map;
  * A program sorts employees by last name and prints them in a table.
  * Exercise 39 Sorting Records, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
  */
 class SortingRecords {
   public static void main(String[] args) {

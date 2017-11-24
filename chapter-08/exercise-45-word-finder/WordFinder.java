@@ -9,7 +9,7 @@ import java.nio.file.Paths;
  *
  * See http://docs.oracle.com/javase/tutorial/essential/io/file.html#common
  *
- * @author James Schmid
+ * @author James Schmidt
  */
 public class WordFinder {
   public static void main(String[] args) {

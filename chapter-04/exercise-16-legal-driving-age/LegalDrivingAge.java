@@ -2,7 +2,7 @@
  * A program that determines if user is old enough to drive.
  * Exercise 16 Legal Driving Age, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class LegalDrivingAge {
   public static void main(String[] args) {

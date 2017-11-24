@@ -4,7 +4,7 @@ import java.util.Arrays;
  * A program to determine if two strings are anagrams.
  * Exercise 24 Anagram Checker, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class AnagramChecker {
   public static void main(String[] args) {

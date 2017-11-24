@@ -1,10 +1,11 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+
 /**
  * A program that calculates body mass index (BMI).
  * Exercise 19 BMI Calculator, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class BmiCalculator {
   public static void main(String[] args) {

@@ -2,7 +2,7 @@
  * A program that generates a table of target heart rates over a range of intensities.
  * Exercise 31 Karvonen Heart Rate, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class KarvonenHeartRate {
   public static void main(String[] args) {

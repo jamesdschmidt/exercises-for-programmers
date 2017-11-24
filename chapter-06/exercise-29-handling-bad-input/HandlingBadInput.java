@@ -2,7 +2,7 @@
  * A program that calculates how many years it will take to double your investment.
  * Exercise 29 Handling Bad Input, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class HandlingBadInput {
   public static void main(String[] args) {

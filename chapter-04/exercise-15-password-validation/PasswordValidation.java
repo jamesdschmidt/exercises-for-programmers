@@ -2,7 +2,7 @@
  * A program that validates user login credentials.
  * Exercise 15 Password Validation, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class PasswordValidation {
   public static void main(String[] args) {

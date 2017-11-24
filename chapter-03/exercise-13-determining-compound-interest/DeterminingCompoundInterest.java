@@ -1,10 +1,11 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+
 /**
  * A program that to compute the value of an investment compounded over time.
  * Exercise 13 Determining Compound Interest, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class DeterminingCompoundInterest {
   public static void main(String[] args) {

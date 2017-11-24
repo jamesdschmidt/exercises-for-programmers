@@ -2,7 +2,7 @@
  * A program that converts temperatures between scales.
  * Exercise 18 Temperature Converter, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class TemperatureConverter {
   public static void main(String[] args) {

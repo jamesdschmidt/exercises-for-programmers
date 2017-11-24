@@ -10,7 +10,7 @@ import java.util.List;
  * A program to read names from a file, sort the names, and write the sorted list to a file.
  * Exercise 41 Name Sorter, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
  */
 class NameSorter {
   public static void main(String[] args) {

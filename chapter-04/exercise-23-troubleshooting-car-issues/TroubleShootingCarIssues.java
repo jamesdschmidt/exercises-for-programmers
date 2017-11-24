@@ -2,7 +2,7 @@
  * A program that walks the user through troubleshooting issues with a car.
  * Exercise 23 Troubleshooting Car Issues, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class TroubleShootingCarIssues {
   public static void main(String[] args) {

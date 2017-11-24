@@ -2,7 +2,7 @@
  * A program that prompts for the parts of speech and then displays a constructed story.
  * Exercise 4 Mad Lib, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class MadLib {
   public static void main(String[] args) {

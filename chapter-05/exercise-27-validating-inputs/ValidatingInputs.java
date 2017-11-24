@@ -2,7 +2,7 @@
  * A program to validate input.
  * Exercise 27 Validating Input, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class ValidatingInputs {
   public static void main(String[] args) {

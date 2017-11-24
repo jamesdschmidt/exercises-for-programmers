@@ -2,7 +2,7 @@
  * A program to calculate gallons of paint needed to paint the ceiling of a room.
  * Exercise 9 Paint Calculator, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class PaintCalculator {
   public static void main(String[] args) {

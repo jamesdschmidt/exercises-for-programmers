@@ -5,7 +5,7 @@ import java.util.List;
  * A program that prompts for numbers and prints out the evens.
  * Exercise 38 Filtering Values, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
  */
 class FilteringValues {
   public static void main(String[] args) {

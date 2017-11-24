@@ -2,7 +2,7 @@
  * A program that prompts for two numbers, performs math, and shows output.
  * Exercise 5 Simple Math, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class SimpleMath {
   public static void main(String[] args) {

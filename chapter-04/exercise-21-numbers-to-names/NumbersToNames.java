@@ -1,10 +1,11 @@
 import java.util.Calendar;
 import java.util.Locale;
+
 /**
  * A program to convert a number from 1 to 12 to a month name.
  * Exercise 21 Numbers to Names, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class NumbersToNames {
   public static void main(String[] args) {

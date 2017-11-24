@@ -5,7 +5,7 @@ import java.math.RoundingMode;
  * A program that converts currency.
  * Exercise 11 Currency Conversion, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class CurrencyConversion {
   public static void main(String[] args) {

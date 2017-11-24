@@ -8,7 +8,7 @@ import java.util.Map;
  * A program that lets a user search for records.
  * Exercise 40 Filtering Records, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
  */
 class FilteringRecords {
   public static void main(String[] args) {

@@ -2,7 +2,7 @@
  * A program to determine the complexity of a password.
  * Exercise 25 Password Strength Indicator, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class PasswordStrengthIndicator {
   public static void main(String[] args) {

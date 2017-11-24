@@ -1,10 +1,11 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+
 /**
  * A program that calculates blood alcohol level.
  * Exercise 17 Blood Alcohol Calculator, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class BloodAlcoholCalculator {
   public static void main(String[] args) {

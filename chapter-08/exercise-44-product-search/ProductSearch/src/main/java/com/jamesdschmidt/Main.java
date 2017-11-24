@@ -4,7 +4,7 @@ package com.jamesdschmidt;
  * A program finds products from a JSON file.
  * Exercise 44 Product Search, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
  */
 public class Main {
   public static void main(String[] args) {

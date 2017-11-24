@@ -1,10 +1,11 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+
 /**
  * A program to compute the tax for multiple states and counties.
  * Exercise 20 Multistate Sales Tax Calculator, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class MultistateSalesTaxCalculator {
   public static void main(String[] args) {

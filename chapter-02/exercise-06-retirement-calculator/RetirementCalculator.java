@@ -4,7 +4,7 @@ import java.time.Year;
  * A program that that determins year left til retirement and retirement year.
  * Exercise 6 Retirement Calculator, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class RetirementCalculator {
   public static void main(String[] args) {

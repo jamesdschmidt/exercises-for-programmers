@@ -2,7 +2,7 @@
  * A program that generates multiplication tables for the numbers 0 through 12.
  * Exercise 30 Multiplication Table, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class MultiplicationTable {
   public static void main(String[] args) {

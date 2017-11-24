@@ -6,7 +6,7 @@ import java.util.List;
  * A program to allow user to remove employees from list.
  * Exercise 34 Employee List Removal, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class EmployeeListRemoval {
   public static void main(String[] args) {

@@ -4,7 +4,7 @@ package com.jamesdschmidt;
  * A program to show the current weather for the provided city.
  * Exercise 48 Grabbing the Weather, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
  */
 public class App {
   public static void main(String[] args) {

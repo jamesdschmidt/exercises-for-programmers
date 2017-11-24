@@ -2,7 +2,7 @@
  * A program that calculates the area of a room.
  * Exercise 7 Area of a Rectangular Room, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class RectangularRoom {
   public static void main(String[] args) {

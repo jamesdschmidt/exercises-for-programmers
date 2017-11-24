@@ -2,7 +2,7 @@
  * A program to evenly divide pizzas.
  * Exercise 8 Pizza Party, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class PizzaParty {
   public static void main(String[] args) {

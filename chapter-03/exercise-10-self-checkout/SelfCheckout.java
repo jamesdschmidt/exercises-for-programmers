@@ -2,7 +2,7 @@
  * A simple self-checkout system.
  * Exercise 10 Self Checkout, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class SelfCheckout {
   public static void main(String[] args) {

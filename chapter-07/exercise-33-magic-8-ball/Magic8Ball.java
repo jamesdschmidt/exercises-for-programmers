@@ -4,7 +4,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * A magic 8 ball game.
  * Exercise 33 Magic 8 Ball, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class Magic8Ball {
   public static void main(String[] args) {

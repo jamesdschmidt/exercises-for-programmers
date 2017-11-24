@@ -4,7 +4,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * A guess the number game.
  * Exercise 32 Guess the Number Game, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class GuessTheNumberGame {
   public static void main(String[] args) {

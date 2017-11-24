@@ -4,7 +4,7 @@ package com.jamesdschmidt;
  * A program to show who’s in space right now.
  * Exercise 47 Who's in Space?, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
  */
 public class App {
   public static void main(String[] args) {

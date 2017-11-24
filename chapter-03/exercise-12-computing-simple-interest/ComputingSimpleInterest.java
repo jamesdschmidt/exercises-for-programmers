@@ -1,10 +1,11 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+
 /**
  * A program that computes simple interest.
  * Exercise 12 Computing Simple Interest, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class ComputingSimpleInterest {
   public static void main(String[] args) {

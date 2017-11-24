@@ -6,10 +6,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTes
+@SpringBootTest
 public class MovieRecommendationsApplicationTests {
 
-  @Tes
+  @Test
   public void contextLoads() {
   }
 

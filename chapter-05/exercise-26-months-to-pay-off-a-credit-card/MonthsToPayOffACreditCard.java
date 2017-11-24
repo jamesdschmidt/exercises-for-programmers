@@ -2,7 +2,7 @@
  * A program to determine the number of months to pay off a credit card balance.
  * Exercise 26 Months to Pay Off a Credit Card, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class MonthsToPayOffACreditCard {
   public static void main(String[] args) {

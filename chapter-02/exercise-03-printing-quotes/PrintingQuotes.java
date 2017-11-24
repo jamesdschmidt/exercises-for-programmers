@@ -2,7 +2,7 @@
  * A program that prompts for quote and author and then displays the quotation.
  * Exercise 3 Printing Quotes, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
 */
 class PrintingQuotes {
   public static void main(String[] args) {

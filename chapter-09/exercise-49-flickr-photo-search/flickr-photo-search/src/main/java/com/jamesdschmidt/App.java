@@ -8,7 +8,7 @@ import javafx.application.Application;
  * A program that searches Flickr.
  * Exercise 49 Flickr Photo Search, Exercises for Programmers by Brian Hogan
  *
- * @author James Schmid
+ * @author James Schmidt
  */
 public class App {
 
