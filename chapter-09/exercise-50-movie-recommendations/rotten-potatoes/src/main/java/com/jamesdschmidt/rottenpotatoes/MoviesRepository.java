@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
-
-import com.jamesdschmidt.util.Strings;
+import org.springframework.util.StringUtils;
 
 @Repository
 public class MoviesRepository {
@@ -20,7 +19,7 @@ public class MoviesRepository {
   public List<Movie> findByTitleLike(String title) {
     List<Movie> results = new ArrayList<>();
 
-    if (!Strings.isEmpty(title)) {
+    if (!StringUtils.isEmpty(title)) {
       for (Movie m : movies) {
         if (m.getTitle().toLowerCase().indexOf(title.toLowerCase()) > -1) {
           results.add(m);
