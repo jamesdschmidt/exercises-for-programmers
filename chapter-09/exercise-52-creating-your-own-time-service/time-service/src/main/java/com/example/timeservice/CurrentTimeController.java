@@ -10,7 +10,7 @@ import java.util.Map;
 @RestController
 public class CurrentTimeController {
 
-  @GetMapping
+  @GetMapping()
   public Map index() {
     return Collections.singletonMap("currentTime", Instant.now());
   }

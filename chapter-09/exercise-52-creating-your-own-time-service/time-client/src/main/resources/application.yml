@@ -1,0 +1,6 @@
+logging.level.root: ERROR
+
+spring:
+  main:
+    banner-mode: "off"
+    web-environment: false
