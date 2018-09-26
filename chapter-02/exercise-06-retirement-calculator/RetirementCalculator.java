@@ -6,7 +6,7 @@ import java.time.Year;
  *
  * @author James Schmidt
  */
-class RetirementCalculator {
+public class RetirementCalculator {
   public static void main(String[] args) {
     var input = gets("What is your current age? ");
     var currentAge = toInt(input);
