@@ -6,7 +6,7 @@
 */
 class CountingCharacters {
   public static void main(String[] args) {
-    String inputString = System.console().readLine("What is the input string? ");
-    System.out.printf("%s has %d characters.%n", inputString, inputString.length());
+    var input = System.console().readLine("What is the input string? ");
+    System.out.printf("%s has %d characters.%n", input, input.length());
   }
 }
