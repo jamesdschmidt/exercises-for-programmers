@@ -4,7 +4,7 @@
  *
  * @author James Schmidt
 */
-class PrintingQuotes {
+public class PrintingQuotes {
   public static void main(String[] args) {
     var quote = gets("What is the quote? ");
     var author = gets("Who said it? ");
