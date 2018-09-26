@@ -6,8 +6,12 @@
 */
 class PrintingQuotes {
   public static void main(String[] args) {
-    String quote = System.console().readLine("What is the quote? ");
-    String author = System.console().readLine("Who said it? ");
-    System.out.println(author + " said \"" + quote + "\"");
+    var quote = gets("What is the quote? ");
+    var author = gets("Who said it? ");
+    puts(author + " said \"" + quote + "\"");
   }
+
+  private static String gets(String s) { return System.console().readLine(s); }
+  private static void puts(String s) { System.out.println(s); }
 }
+
