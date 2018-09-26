@@ -4,7 +4,7 @@
  *
  * @author James Schmidt
 */
-class SimpleMath {
+public class SimpleMath {
   public static void main(String[] args) {
     var input = gets("What is the first number? ");
     var firstNumber = toInt(input);
