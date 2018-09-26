@@ -8,15 +8,19 @@ class RectangularRoom {
   public static void main(String[] args) {
     final double FEET_TO_METERS = 0.09290304;
 
-    String input = System.console().readLine("What is the length of the room in feet? ");
-    int length = Integer.parseInt(input);
+    var input = gets("What is the length of the room in feet? ");
+    var length = toInt(input);
 
-    input = System.console().readLine("What is the width of the room in feet? ");
-    int width = Integer.parseInt(input);
+    input = gets("What is the width of the room in feet? ");
+    var width = toInt(input);
 
-    int area = length * width;
-    double areaInMeters = area * FEET_TO_METERS;
+    var area = length * width;
+    var areaInMeters = area * FEET_TO_METERS;
 
-    System.out.printf("The area is%n%d square feet%n%.3f square meters%n", area, areaInMeters);
+    puts("The area is%n%d square feet%n%.3f square meters%n", area, areaInMeters);
   }
+  
+  private static int toInt(String s) { return Integer.parseInt(s); }
+  private static String gets(String s) { return System.console().readLine(s); }
+  private static void puts(String format, Object... args) { System.out.printf(format, args); }
 }
