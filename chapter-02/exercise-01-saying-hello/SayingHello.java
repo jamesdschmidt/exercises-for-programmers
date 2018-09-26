@@ -6,8 +6,11 @@
 */
 public class SayingHello {
   public static void main(String[] args) {
-    var name = System.console().readLine("What is your name? ");
+    var name = gets("What is your name? ");
     var greeting = "Hello, " + name + ", nice to meet you!";
-    System.out.println(greeting);
+    puts(greeting);
   }
+
+  private static String gets(String s) { return System.console().readLine(s); }
+  private static void puts(String s) { System.out.println(s); }
 }
