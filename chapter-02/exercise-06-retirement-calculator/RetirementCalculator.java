@@ -5,23 +5,29 @@ import java.time.Year;
  * Exercise 6 Retirement Calculator, Exercises for Programmers by Brian Hogan
  *
  * @author James Schmidt
-*/
+ */
 class RetirementCalculator {
   public static void main(String[] args) {
-    String input = System.console().readLine("What is your current age? ");
-    int currentAge = Integer.parseInt(input);
+    var input = gets("What is your current age? ");
+    var currentAge = toInt(input);
 
-    input = System.console().readLine("At what age would you like to retire? ");
-    int retireAge = Integer.parseInt(input);
+    input = gets("At what age would you like to retire? ");
+    var retireAge = toInt(input);
 
-    int yearsLeft = retireAge - currentAge;
-    int currentYear = Year.now().getValue();
-    int retirementYear = currentYear + yearsLeft;
+    var yearsLeft = retireAge - currentAge;
+    var currentYear = Year.now().getValue();
+    var retirementYear = currentYear + yearsLeft;
 
     if (yearsLeft < 1) {
-      System.out.println("You can already retire.");
+      puts("You can already retire.");
     } else {
-      System.out.printf("You have %d years left until you can retire.%nIt's %d, so you can retire in %d.%n", yearsLeft, currentYear, retirementYear);
+      puts("You have %d years left until you can retire.%nIt's %d, so you can retire in %d.%n",
+        yearsLeft, currentYear, retirementYear);
     }
   }
+
+  private static int toInt(String s) { return Integer.parseInt(s); }
+  private static String gets(String s) { return System.console().readLine(s); }
+  private static void puts(String s) { System.out.println(s); }
+  private static void puts(String format, Object... args) { System.out.printf(format, args); }
 }
