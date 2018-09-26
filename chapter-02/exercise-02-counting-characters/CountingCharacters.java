@@ -4,7 +4,7 @@
  *
  * @author James Schmidt
 */
-class CountingCharacters {
+public class CountingCharacters {
   public static void main(String[] args) {
     var input = gets("What is the input string? ");
     puts("%s has %d characters.%n", input, input.length());
