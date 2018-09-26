@@ -4,7 +4,7 @@
  *
  * @author James Schmidt
 */
-class MadLib {
+public class MadLib {
   public static void main(String[] args) {
     var noun = gets("Enter a noun: ");
     var verb = gets("Enter a verb: ");
