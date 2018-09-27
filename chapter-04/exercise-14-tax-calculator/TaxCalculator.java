@@ -1,29 +1,26 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-/**
- * A program to compute the tax on an order amount.
- * Exercise 14 Tax Calculator, Exercises for Programmers by Brian Hogan
- *
- * @author James Schmidt
-*/
 class TaxCalculator {
+  private static final BigDecimal TAX_RATE = new BigDecimal(0.055);
+  
   public static void main(String[] args) {
-    final BigDecimal TAX_RATE = new BigDecimal(0.055);
+    var input = System.console().readLine("What is the order amount? ");
+    var amount = new BigDecimal(input);
 
-    String input = System.console().readLine("What is the order amount? ");
-    BigDecimal amount = new BigDecimal(input);
+    var state = System.console().readLine("What is the state? ");
 
-    String state = System.console().readLine("What is the state? ");
-
-    BigDecimal total = amount;
-    String output = "";
-    if (state.equals("WI")) {
-      BigDecimal tax = amount.multiply(TAX_RATE);
-      output = String.format("The subtotal is $%s.%nThe tax is $%s%n", amount.setScale(2, RoundingMode.HALF_UP), tax.setScale(2, RoundingMode.HALF_UP));
+    var total = amount;
+    var output = new StringBuilder();
+    if ("WI".equalsIgnoreCase(state)) {
+      var tax = amount.multiply(TAX_RATE);
       total = total.add(tax);
+      
+      output.append(String.format("The subtotal is $%s.%nThe tax is $%s%n",
+        amount.setScale(2, RoundingMode.HALF_UP),
+        tax.setScale(2, RoundingMode.HALF_UP)));
     }
-    output += String.format("The total is $%s", total.setScale(2, RoundingMode.HALF_UP));
+    output.append(String.format("The total is $%s", total.setScale(2, RoundingMode.HALF_UP)));
 
     System.out.println(output);
   }
