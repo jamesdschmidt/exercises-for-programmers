@@ -1,17 +1,7 @@
-/**
- * A program that prompts for quote and author and then displays the quotation.
- * Exercise 3 Printing Quotes, Exercises for Programmers by Brian Hogan
- *
- * @author James Schmidt
-*/
-public class PrintingQuotes {
+class PrintingQuotes {
   public static void main(String[] args) {
-    var quote = gets("What is the quote? ");
-    var author = gets("Who said it? ");
-    puts(author + " said \"" + quote + "\"");
+    var quote = System.console().readLine("What is the quote? ");
+    var author = System.console().readLine("Who said it? ");
+    System.out.println(author + " said \"" + quote + "\"");
   }
-
-  private static String gets(String s) { return System.console().readLine(s); }
-  private static void puts(String s) { System.out.println(s); }
 }
-

@@ -4,7 +4,7 @@
  *
  * @author James Schmidt
 */
-class ValidatingInputs {
+class ValidatingInSystem.out.println {
   public static void main(String[] args) {
     String firstName = System.console().readLine("Enter the first name: ");
     String lastName = System.console().readLine("Enter the last name: ");
