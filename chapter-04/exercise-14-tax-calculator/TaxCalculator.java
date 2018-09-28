@@ -5,8 +5,8 @@ class TaxCalculator {
   private static final BigDecimal TAX_RATE = new BigDecimal(0.055);
   
   public static void main(String[] args) {
-    var input = System.console().readLine("What is the order amount? ");
-    var amount = new BigDecimal(input);
+    var line = System.console().readLine("What is the order amount? ");
+    var amount = new BigDecimal(line);
 
     var state = System.console().readLine("What is the state? ");
 

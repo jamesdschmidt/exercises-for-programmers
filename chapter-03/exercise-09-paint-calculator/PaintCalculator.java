@@ -2,11 +2,11 @@ class PaintCalculator {
   private static final int ONE_GALLON = 350;
   
   public static void main(String[] args) {
-    var input = System.console().readLine("What is length of the ceiling? ");
-    var length = Integer.parseInt(input);
+    var line = System.console().readLine("What is length of the ceiling? ");
+    var length = Integer.parseInt(line);
 
-    input = System.console().readLine("What is the width of the ceiling? ");
-    var width = Integer.parseInt(input);
+    line = System.console().readLine("What is the width of the ceiling? ");
+    var width = Integer.parseInt(line);
 
     var area = length * width;
     var gallonsNeeded = area / ONE_GALLON;

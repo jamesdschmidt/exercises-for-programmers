@@ -1,10 +1,10 @@
 class SimpleMath {
   public static void main(String[] args) {
-    var input = System.console().readLine("What is the first number? ");
-    var firstNumber = Integer.parseInt(input);
+    var line = System.console().readLine("What is the first number? ");
+    var firstNumber = Integer.parseInt(line);
 
-    input = System.console().readLine("What is the second number? ");
-    var secondNumber = Integer.parseInt(input);
+    line = System.console().readLine("What is the second number? ");
+    var secondNumber = Integer.parseInt(line);
 
     var sum = firstNumber + secondNumber;
     var difference = firstNumber - secondNumber;

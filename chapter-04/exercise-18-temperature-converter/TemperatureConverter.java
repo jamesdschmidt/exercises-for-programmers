@@ -1,16 +1,10 @@
-/**
- * A program that converts temperatures between scales.
- * Exercise 18 Temperature Converter, Exercises for Programmers by Brian Hogan
- *
- * @author James Schmidt
-*/
 class TemperatureConverter {
   public static void main(String[] args) {
-    String input = System.console().readLine("Press C to convert from Fahrenheit to Celsius.%nPress F to convert from Celsius to Fahrenheit.%nYour choice: ");
-    boolean toCelsius = input.toLowerCase().equals("c");
+    var line = System.console().readLine("Press C to convert from Fahrenheit to Celsius.%nPress F to convert from Celsius to Fahrenheit.%nYour choice: ");
+    var toCelsius = input.toLowerCase().equals("c");
 
-    input = System.console().readLine("Please enter the temperature in " + (toCelsius ? "Fahrenheit" : "Celsius") + ": ");
-    double temperature = Double.parseDouble(input);
+    line = System.console().readLine("Please enter the temperature in " + (toCelsius ? "Fahrenheit" : "Celsius") + ": ");
+    double temperature = Double.parseDouble(line);
 
     double convertedTemperature;
     if (toCelsius) {

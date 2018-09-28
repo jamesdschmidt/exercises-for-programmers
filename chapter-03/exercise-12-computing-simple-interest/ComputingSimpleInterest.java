@@ -3,14 +3,14 @@ import java.math.RoundingMode;
 
 class ComputingSimpleInterest {
   public static void main(String[] args) {
-    var input = System.console().readLine("Enter the principal: ");
-    var principal = Double.parseDouble(input);
+    var line = System.console().readLine("Enter the principal: ");
+    var principal = Double.parseDouble(line);
 
-    input = System.console().readLine("Enter the rate of interest: ");
-    var rate = Double.parseDouble(input);
+    line = System.console().readLine("Enter the rate of interest: ");
+    var rate = Double.parseDouble(line);
 
-    input = System.console().readLine("Enter the number of years: ");
-    var time = Integer.parseInt(input);
+    line = System.console().readLine("Enter the number of years: ");
+    var time = Integer.parseInt(line);
 
     var amount = new BigDecimal(principal * (1 + (rate / 100) * time)).setScale(2, RoundingMode.UP);
 

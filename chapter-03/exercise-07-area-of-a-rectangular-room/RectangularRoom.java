@@ -2,11 +2,11 @@ class RectangularRoom {
   private static final double FEET_TO_METERS = 0.09290304;
   
   public static void main(String[] args) { 
-    var input = System.console().readLine("What is the length of the room in feet? ");
-    var length = Integer.parseInt(input);
+    var line = System.console().readLine("What is the length of the room in feet? ");
+    var length = Integer.parseInt(line);
 
-    input = System.console().readLine("What is the width of the room in feet? ");
-    var width = Integer.parseInt(input);
+    line = System.console().readLine("What is the width of the room in feet? ");
+    var width = Integer.parseInt(line);
 
     var area = length * width;
     var areaInMeters = area * FEET_TO_METERS;

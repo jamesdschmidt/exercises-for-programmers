@@ -2,11 +2,11 @@ import java.time.Year;
 
 class RetirementCalculator {
   public static void main(String[] args) {
-    var input = System.console().readLine("What is your current age? ");
-    var currentAge = Integer.parseInt(input);
+    var line = System.console().readLine("What is your current age? ");
+    var currentAge = Integer.parseInt(line);
 
-    input = System.console().readLine("At what age would you like to retire? ");
-    var retireAge = Integer.parseInt(input);
+    line = System.console().readLine("At what age would you like to retire? ");
+    var retireAge = Integer.parseInt(line);
 
     var yearsLeft = retireAge - currentAge;
     var currentYear = Year.now().getValue();

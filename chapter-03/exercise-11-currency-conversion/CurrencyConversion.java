@@ -5,11 +5,11 @@ class CurrencyConversion {
   private static final BigDecimal DOLLAR_RATE = new BigDecimal(100);
   
   public static void main(String[] args) {
-    var input = System.console().readLine("How many euros are you exchanging? ");
-    var euros = new BigDecimal(input);
+    var line = System.console().readLine("How many euros are you exchanging? ");
+    var euros = new BigDecimal(line);
 
-    input = System.console().readLine("What is the exchange rate? ");
-    var euroRate = new BigDecimal(input);
+    line = System.console().readLine("What is the exchange rate? ");
+    var euroRate = new BigDecimal(line);
 
     var dollars = euros.multiply(euroRate).divide(DOLLAR_RATE).setScale(2, RoundingMode.HALF_EVEN);
 

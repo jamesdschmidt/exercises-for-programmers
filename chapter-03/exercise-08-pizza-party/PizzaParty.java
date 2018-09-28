@@ -1,13 +1,13 @@
 class PizzaParty {
   public static void main(String[] args) {
-    var input = System.console().readLine("How many people? ");
-    var people = Integer.parseInt(input);
+    var line = System.console().readLine("How many people? ");
+    var people = Integer.parseInt(line);
 
-    input = System.console().readLine("How many pizzas do you have? ");
-    var pizzas = Integer.parseInt(input);
+    line = System.console().readLine("How many pizzas do you have? ");
+    var pizzas = Integer.parseInt(line);
 
-    input = System.console().readLine("How many slices per pizza? ");
-    var slices = Integer.parseInt(input);
+    line = System.console().readLine("How many slices per pizza? ");
+    var slices = Integer.parseInt(line);
 
     var slicesEach = (pizzas * slices) / people;
     var remainder = (pizzas * slices) % people;
