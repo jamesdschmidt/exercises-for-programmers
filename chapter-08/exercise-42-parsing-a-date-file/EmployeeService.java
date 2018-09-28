@@ -35,11 +35,9 @@ public class EmployeeService {
     salaryNameLength++;
     var totalLength = firstNameLength + lastNameLength + salaryNameLength;
 
-    var format = "%-" + lastNameLength + "s%-" + firstNameLength + "s%-" + salaryNameLength + "s";
+    final String format = "%-" + lastNameLength + "s%-" + firstNameLength + "s%-" + salaryNameLength + "s";
     System.out.printf(format + "%n", "Last", "First", "Salary");
-    System.out.printf("%s%n", Strings.repeat("-", totalLength));
-    for (var e : employees) {
-      System.out.printf(format + "%n", e.getLastName(), e.getFirstName(), e.getSalary());
-    }
+    System.out.printf("%s%n", "-".repeat(totalLength));
+    employees.forEach(e -> System.out.printf(format + "%n", e.getLastName(), e.getFirstName(), e.getSalary()));
   }
 }
