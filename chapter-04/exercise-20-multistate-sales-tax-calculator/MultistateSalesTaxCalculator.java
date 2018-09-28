@@ -1,34 +1,28 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-/**
- * A program to compute the tax for multiple states and counties.
- * Exercise 20 Multistate Sales Tax Calculator, Exercises for Programmers by Brian Hogan
- *
- * @author James Schmidt
-*/
 class MultistateSalesTaxCalculator {
   public static void main(String[] args) {
-    String input = System.console().readLine("What is the order amount? ");
-    BigDecimal amount = new BigDecimal(input);
+    var line = System.console().readLine("What is the order amount? ");
+    var amount = new BigDecimal(line);
 
-    BigDecimal tax = new BigDecimal(0);
-    input = System.console().readLine("What state do you live in? ");
-    if (input.toLowerCase().startsWith("il")) {
+    var tax = BigDecimal.ZERO;
+    line = System.console().readLine("What state do you live in? ");
+    if (line.toLowerCase().startsWith("il")) {
       tax = amount.multiply(new BigDecimal(0.08));
-    } else if (input.toLowerCase().startsWith("wi")) {
+    } else if (line.toLowerCase().startsWith("wi")) {
       tax = amount.multiply(new BigDecimal(0.055));
-      input = System.console().readLine("What county do you live in? ");
-      if (input.toLowerCase().equals("eau claire")) {
+      line = System.console().readLine("What county do you live in? ");
+      if (line.toLowerCase().equals("eau claire")) {
         tax = tax.add(new BigDecimal(0.005));
-      } else if (input.toLowerCase().equals("dunn")) {
+      } else if (line.toLowerCase().equals("dunn")) {
         tax = tax.add(new BigDecimal(0.004));
       }
     }
 
-    BigDecimal total = amount;
-    String output = "";
-    if (tax.compareTo(new BigDecimal(0)) > 0) {
+    var total = amount;
+    var output = "";
+    if (tax.compareTo(BigDecimal.ZERO) > 0) {
       output = String.format("The tax is $%s.%n", tax.setScale(2, RoundingMode.HALF_UP));
       total = total.add(tax);
     }

@@ -1,23 +1,16 @@
-/**
- * A program to validate input.
- * Exercise 27 Validating Input, Exercises for Programmers by Brian Hogan
- *
- * @author James Schmidt
-*/
-class ValidatingInSystem.out.println {
+class ValidatingInputs {
   public static void main(String[] args) {
-    String firstName = System.console().readLine("Enter the first name: ");
-    String lastName = System.console().readLine("Enter the last name: ");
-    String zipCode = System.console().readLine("Enter the ZIP code: ");
-    String employeeId = System.console().readLine("Enter an employee ID: ");
+    var firstName = System.console().readLine("Enter the first name: ");
+    var lastName = System.console().readLine("Enter the last name: ");
+    var zipCode = System.console().readLine("Enter the ZIP code: ");
+    var employeeId = System.console().readLine("Enter an employee ID: ");
 
-    String output = validateInput(firstName, lastName, zipCode, employeeId);
-
+    var output = validateInput(firstName, lastName, zipCode, employeeId);
     System.out.print(output);
   }
 
   private static String validateInput(String firstName, String lastName, String zipCode, String employeeId) {
-    String message = "";
+    var message = "";
 
     if (isEmpty(firstName)) {
       message += "The first name must be filled in.\n";
@@ -50,15 +43,15 @@ class ValidatingInSystem.out.println {
     return s == null || s.length() == 0;
   }
 
-  private static boolean isTooShort(String s, int minimumLength) {
-    return s == null || s.length() < minimumLength;
+  private static boolean isTooShort(String s, int min) {
+    return s == null || s.length() < min;
   }
 
   private static boolean isInteger(String s) {
     if (isEmpty(s)) {
       return false;
     }
-    for (char c : s.toCharArray()) {
+    for (var c : s.toCharArray()) {
       if (!Character.isDigit(c)) {
         return false;
       }

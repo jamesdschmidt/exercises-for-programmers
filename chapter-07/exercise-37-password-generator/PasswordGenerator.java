@@ -3,33 +3,27 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * A program that generates a secure password.
- * Exercise 37 Password Generator, Exercises for Programmers by Brian Hogan
- *
- * @author James Schmidt
-*/
 class PasswordGenerator {
-  private static final List<Character> ALPHAS = Arrays.asList('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
-  private static final List<Character> DIGITS = Arrays.asList('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
-  private static final List<Character> SPECIALS = Arrays.asList('!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~');
+  private static final List<Character> ALPHAS = List.of('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
+  private static final List<Character> DIGITS = List.of('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
+  private static final List<Character> SPECIALS = List.of('!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~');
 
   public static void main(String[] args) {
-    List<Long> responseTimes = new ArrayList<>();
+    var responseTimes = new ArrayList<Long>();
 
-    int length = getInt("What's the minimum length? ");
-    int specialCharacterCount = getInt("How many special characters? ");
-    int numberCount = getInt("How many numbers? ");
+    var length = getInt("What's the minimum length? ");
+    var specialCharacterCount = getInt("How many special characters? ");
+    var numberCount = getInt("How many numbers? ");
 
-    String password = generatePassword(length, numberCount, specialCharacterCount);
+    var password = generatePassword(length, numberCount, specialCharacterCount);
     System.out.printf("Your password is%n%s%n", password);
   }
 
   private static int getInt(String prompt) {
     while (true) {
-      String input = System.console().readLine(prompt);
-      if (isInteger(input)) {
-        return Integer.parseInt(input);
+      var line = System.console().readLine(prompt);
+      if (isInt(line)) {
+        return Integer.parseInt(line);
       }
     }
   }
@@ -38,11 +32,11 @@ class PasswordGenerator {
     return s == null || s.length() == 0;
   }
 
-  private static boolean isInteger(String s) {
+  private static boolean isInt(String s) {
     if (isEmpty(s)) {
       return false;
     }
-    for (char c : s.toCharArray()) {
+    for (var c : s.toCharArray()) {
       if (!Character.isDigit(c)) {
         return false;
       }
@@ -51,8 +45,8 @@ class PasswordGenerator {
   }
 
   private static String generatePassword(int length, int numberCount, int specialCharCount) {
-    StringBuilder builder = new StringBuilder();
-    for (int i = 0; i < length; i++) {
+    var builder = new StringBuilder();
+    for (var i = 0; i < length; i++) {
       List<Character> chars = null;
       while (true) {
         int set = getRandomInt(3);
@@ -75,12 +69,12 @@ class PasswordGenerator {
   }
 
   private static int getRandomInt(int max) {
-    SecureRandom random = new SecureRandom();
+    var random = new SecureRandom();
     return random.nextInt(max + 1);
   }
 
   private static char getRandomChar(List<Character> chars) {
-    int index = getRandomInt(chars.size() - 1);
+    var index = getRandomInt(chars.size() - 1);
     return chars.get(index);
   }
 }

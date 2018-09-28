@@ -4,21 +4,15 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * A program sorts employees by last name and prints them in a table.
- * Exercise 39 Sorting Records, Exercises for Programmers by Brian Hogan
- *
- * @author James Schmidt
- */
 class SortingRecords {
   public static void main(String[] args) {
-    List<Map<String, String>> employees = getEmployees();
+    var employees = getEmployees();
     employees = sortEmployees(employees, "lastName");
     printEmployees(employees);
   }
 
   private static Map<String, String> getEmployee(String firstName, String lastName, String position, String separationDate) {
-    Map<String, String> employee = new HashMap<>();
+    var employee = new HashMap<String, String>();
     employee.put("firstName", firstName);
     employee.put("lastName", lastName);
     employee.put("position", position);
@@ -27,7 +21,7 @@ class SortingRecords {
   }
 
   private static List<Map<String, String>> getEmployees() {
-    List<Map<String, String>> employees = new ArrayList<>();
+    var employees = new ArrayList<Map<String, String>>();
     employees.add(getEmployee("John", "Johnson", "Manager", "2016-12-31"));
     employees.add(getEmployee("Tou", "Xiong", "Software Engineer", "2016-10-05"));
     employees.add(getEmployee("Michaela", "Michaelson", "District Manager", "2015-12-19"));
@@ -49,13 +43,8 @@ class SortingRecords {
   }
 
   private static List<Map<String, String>> sortEmployees(List<Map<String, String>> employees, String field) {
-    Comparator<Map<String, String>> mapComparator = new Comparator<Map<String, String>>() {
-      @Override
-      public int compare(Map<String, String> o1, Map<String, String> o2) {
-        return o1.get(field).compareTo(o2.get(field));
-      }
-    };
-    employees.sort(mapComparator);
+    Comparator<Map<String, String>> comparator = (Map<String, String> m1, Map<String, String> m2) -> m1.get(field).compareTo(m2.get(field));
+    employees.sort(comparator);
     return employees;
   }
 }

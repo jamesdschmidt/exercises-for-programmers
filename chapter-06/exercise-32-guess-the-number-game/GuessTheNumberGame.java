@@ -1,11 +1,5 @@
 import java.util.concurrent.ThreadLocalRandom;
 
-/**
- * A guess the number game.
- * Exercise 32 Guess the Number Game, Exercises for Programmers by Brian Hogan
- *
- * @author James Schmidt
-*/
 class GuessTheNumberGame {
   public static void main(String[] args) {
     System.out.println("Let's play Guess the Number.");
@@ -18,22 +12,17 @@ class GuessTheNumberGame {
   }
 
   private static String getGuessPrompt(int guess, int number) {
-    String prompt;
     if (guess == -1) {
-      prompt = "Wrong guess. Guess again: ";
-    } else if (guess < number) {
-      prompt = "Too low. Guess again: ";
-    } else {
-      prompt = "Too high. Guess again: ";
+      return "Wrong guess. Guess again: ";
     }
-    return prompt;
+    return (guess < number) ? "Too low. Guess again: " : "Too high. Guess again: ";
   }
 
   private static int getInt(String prompt) {
     while (true) {
-      String input = System.console().readLine(prompt);
-      if (isInteger(input)) {
-        return Integer.parseInt(input);
+      var line = System.console().readLine(prompt);
+      if (isInt(line)) {
+        return Integer.parseInt(line);
       }
     }
   }
@@ -46,7 +35,7 @@ class GuessTheNumberGame {
     return s == null || s.length() == 0;
   }
 
-  private static boolean isInteger(String s) {
+  private static boolean isInt(String s) {
     if (isEmpty(s)) {
       return false;
     }
@@ -59,19 +48,19 @@ class GuessTheNumberGame {
   }
 
   private static boolean playAgain() {
-    String input = System.console().readLine("Play again? ");
-    return input.toLowerCase().startsWith("y");
+    var line = System.console().readLine("Play again? ");
+    return line.toLowerCase().startsWith("y");
   }
 
   private static void playGame() {
-    int tries = 1;
-    int difficulty = getInt("Pick a difficulty level (1, 2, or 3): ");
-    int number = getRandomNumber(difficulty);
+    var tries = 1;
+    var difficulty = getInt("Pick a difficulty level (1, 2, or 3): ");
+    var number = getRandomNumber(difficulty);
 
-    int guess = getInt("I have my number. What's your guess? ");
+    var guess = getInt("I have my number. What's your guess? ");
     while (guess != number) {
       tries++;
-      String prompt = getGuessPrompt(guess, number);
+      var prompt = getGuessPrompt(guess, number);
       guess = getInt(prompt);
     }
 

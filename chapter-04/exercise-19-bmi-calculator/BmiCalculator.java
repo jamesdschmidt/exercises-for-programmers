@@ -1,18 +1,12 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-/**
- * A program that calculates body mass index (BMI).
- * Exercise 19 BMI Calculator, Exercises for Programmers by Brian Hogan
- *
- * @author James Schmidt
-*/
 class BmiCalculator {
   public static void main(String[] args) {
-    double height = getDouble("What is your height? ");
-    double weight = getDouble("What is your weight? ");
+    var height = getd("What is your height? ");
+    var weight = getd("What is your weight? ");
 
-    double bmi = (weight / (height * height)) * 703;
+    var bmi = (weight / (height * height)) * 703;
 
     System.out.printf("Your BMI is %.1f%n", bmi);
     if (bmi < 18.5 || bmi > 25) {
@@ -22,17 +16,13 @@ class BmiCalculator {
     }
   }
 
-  private static double getDouble(String prompt) {
-    double value;
-    String line = System.console().readLine(prompt);
-
+  private static double getd(String prompt) {
+    var line = System.console().readLine(prompt);
     try {
-      value = Double.parseDouble(line);
+      return Double.parseDouble(line);
     } catch (NumberFormatException e) {
       System.out.println("Enter valid number.");
-      value = getDouble(prompt);
+      return getd(prompt);
     }
-
-    return value;
   }
 }

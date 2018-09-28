@@ -4,23 +4,17 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * A program that lets a user search for records.
- * Exercise 40 Filtering Records, Exercises for Programmers by Brian Hogan
- *
- * @author James Schmidt
- */
 class FilteringRecords {
   public static void main(String[] args) {
-    String search = System.console().readLine("Enter a search string: ");
-    List<Map<String, String>> employees = getEmployees();
-    List<Map<String, String>> results = searchEmployees(employees, search);
+    var search = System.console().readLine("Enter a search string: ");
+    var employees = getEmployees();
+    var results = searchEmployees(employees, search);
     results = sortEmployees(results, "lastName");
     printEmployees(results);
   }
 
   private static Map<String, String> getEmployee(String firstName, String lastName, String position, String separationDate) {
-    Map<String, String> employee = new HashMap<>();
+    var employee = new HashMap<String, String>();
     employee.put("firstName", firstName);
     employee.put("lastName", lastName);
     employee.put("position", position);
@@ -29,7 +23,7 @@ class FilteringRecords {
   }
 
   private static List<Map<String, String>> getEmployees() {
-    List<Map<String, String>> employees = new ArrayList<>();
+    var employees = new ArrayList<Map<String, String>>();
     employees.add(getEmployee("John", "Johnson", "Manager", "2016-12-31"));
     employees.add(getEmployee("Tou", "Xiong", "Software Engineer", "2016-10-05"));
     employees.add(getEmployee("Michaela", "Michaelson", "District Manager", "2015-12-19"));
@@ -51,10 +45,10 @@ class FilteringRecords {
   }
 
   private static List<Map<String, String>> searchEmployees(List<Map<String, String>> employees, String search) {
-    List<Map<String, String>> results = new ArrayList<>();
-    for (int i = 0; i < employees.size(); i++) {
-      Map<String, String> employee = employees.get(i);
-      for (Map.Entry<String, String> entry : employee.entrySet()) {
+    var results = new ArrayList<Map<String, String>>();
+    for (var i = 0; i < employees.size(); i++) {
+      var employee = employees.get(i);
+      for (var entry : employee.entrySet()) {
         if (entry.getValue().indexOf(search) > -1) {
           results.add(employee);
           break;
@@ -65,13 +59,8 @@ class FilteringRecords {
   }
 
   private static List<Map<String, String>> sortEmployees(List<Map<String, String>> employees, String field) {
-    Comparator<Map<String, String>> mapComparator = new Comparator<Map<String, String>>() {
-      @Override
-      public int compare(Map<String, String> o1, Map<String, String> o2) {
-        return o1.get(field).compareTo(o2.get(field));
-      }
-    };
-    employees.sort(mapComparator);
+    Comparator<Map<String, String>> comparator = (Map<String, String> m1, Map<String, String> m2) -> m1.get(field).compareTo(m2.get(field));
+    employees.sort(comparator);
     return employees;
   }
 }

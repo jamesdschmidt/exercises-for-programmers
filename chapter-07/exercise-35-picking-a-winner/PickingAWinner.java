@@ -3,18 +3,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * A program that picks a winner for a contest or prize drawing.
- * Exercise 35 Picking a Winner, Exercises for Programmers by Brian Hogan
- *
- * @author James Schmidt
-*/
 class PickingAWinner {
   public static void main(String[] args) {
-    List<String> contestants = new ArrayList<>();
+    var contestants = new ArrayList<String>();
 
     while (true) {
-      String contestant = System.console().readLine("Enter a name: ");
+      var contestant = System.console().readLine("Enter a name: ");
       if (contestant.length() > 0) {
         contestants.add(contestant);
       } else {
@@ -23,13 +17,13 @@ class PickingAWinner {
     }
 
     if (contestants.size() > 0) {
-      String winner = pickWinner(contestants);
+      var winner = pickWinner(contestants);
       System.out.printf("The winner is...%s.%n", winner);
     }
   }
 
   private static String pickWinner(List<String> contestants) {
-    int index = getRandomIndex(contestants.size());
+    var index = getRandomIndex(contestants.size());
     return contestants.get(index);
   }
 

@@ -1,29 +1,22 @@
-/**
- * A program to determine the complexity of a password.
- * Exercise 25 Password Strength Indicator, Exercises for Programmers by Brian Hogan
- *
- * @author James Schmidt
-*/
 class PasswordStrengthIndicator {
   public static void main(String[] args) {
-    String password = System.console().readLine("Enter the password: ");
+    var password = System.console().readLine("Enter the password: ");
 
-    int strength = passwordValidator(password);
-    String passwordStrength = getPasswordStrength(strength);
+    var strength = passwordValidator(password);
+    var passwordStrength = getPasswordStrength(strength);
 
     System.out.printf("The password '%s' is a %s password.%n", password, passwordStrength);
   }
 
   private static String getPasswordStrength(int strength) {
-    String passwordStrength = "very weak";
     if (strength >= 15) {
-      passwordStrength = "very strong";
+      return "very strong";
     } else if (strength >= 11) {
-      passwordStrength = "strong";
+      return "strong";
     } else if (strength >= 2) {
-      passwordStrength = "weak";
+      return "weak";
     }
-    return passwordStrength;
+    return "very weak";
   }
 
   private static int passwordValidator(String password) {
@@ -46,7 +39,7 @@ class PasswordStrengthIndicator {
   }
 
   private static boolean hasCharacter(String password) {
-    for (char c : password.toCharArray()) {
+    for (var c : password.toCharArray()) {
       if (Character.isLetter(c)) {
         return true;
       }
@@ -55,7 +48,7 @@ class PasswordStrengthIndicator {
   }
 
   private static boolean hasDigit(String password) {
-    for (char c : password.toCharArray()) {
+    for (var c : password.toCharArray()) {
       if (Character.isDigit(c)) {
         return true;
       }
@@ -68,7 +61,7 @@ class PasswordStrengthIndicator {
   }
 
   private static boolean hasSpecialCharacter(String password) {
-    for (char c : password.toCharArray()) {
+    for (var c : password.toCharArray()) {
       if (!Character.isLetterOrDigit(c)) {
         return true;
       }

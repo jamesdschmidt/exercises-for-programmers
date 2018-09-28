@@ -3,30 +3,24 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * A program that prompts for response times and computes statistics.
- * Exercise 36 Computing Statistics, Exercises for Programmers by Brian Hogan
- *
- * @author James Schmidt
-*/
 class ComputingStatistics {
   public static void main(String[] args) {
-    List<Long> responseTimes = new ArrayList<>();
+    var responseTimes = new ArrayList<Long>();
 
     while (true) {
-      String input = System.console().readLine("Enter a number: ");
-      if ("done".equals(input)) {
+      var line = System.console().readLine("Enter a number: ");
+      if ("done".equalsIgnoreCase(line)) {
         break;
-      } else if (isInteger(input)) {
-        responseTimes.add(Long.parseLong(input));
+      } else if (isInteger(line)) {
+        responseTimes.add(Long.parseLong(line));
       }
     }
 
     if (responseTimes.size() > 0) {
-      long average = calculateAverage(responseTimes);
-      long minimum = calculateMinimum(responseTimes);
-      long maximum = calculateMaximum(responseTimes);
-      double standardDeviation = calculateStandardDeviation(responseTimes);
+      var average = calculateAverage(responseTimes);
+      var minimum = calculateMinimum(responseTimes);
+      var maximum = calculateMaximum(responseTimes);
+      var standardDeviation = calculateStandardDeviation(responseTimes);
 
       printResponseTimes(responseTimes);
       System.out.printf("The average is %d.%n", average);
@@ -37,38 +31,38 @@ class ComputingStatistics {
   }
 
   private static long calculateAverage(List<Long> list) {
-    long sum = 0;
-    for (long value : list) {
+    var sum = 0;
+    for (var value : list) {
       sum += value;
     }
     return sum / list.size();
   }
 
   private static long calculateMinimum(List<Long> list) {
-    long minimum = list.get(0);
-    for (long value : list) {
-      minimum = minimum > value ? value : minimum;
+    var min = list.get(0);
+    for (var value : list) {
+      min = min > value ? value : min;
     }
-    return minimum;
+    return min;
   }
 
   private static long calculateMaximum(List<Long> list) {
-    long maximum = list.get(0);
-    for (long value : list) {
-      maximum = maximum < value ? value : maximum;
+    var max = list.get(0);
+    for (var value : list) {
+      max = max < value ? value : max;
     }
-    return maximum;
+    return max;
   }
 
   private static double calculateStandardDeviation(List<Long> list) {
-    long mean = calculateAverage(list);
+    var mean = calculateAverage(list);
 
-    double sum = 0;
-    for (long value : list) {
+    var sum = 0;
+    for (var value : list) {
       sum += Math.pow(value - mean, 2);
     }
 
-    double squaredMean = sum / list.size();
+    var squaredMean = sum / list.size();
     return Math.sqrt(squaredMean);
   }
 
@@ -80,7 +74,7 @@ class ComputingStatistics {
     if (isEmpty(s)) {
       return false;
     }
-    for (char c : s.toCharArray()) {
+    for (var c : s.toCharArray()) {
       if (!Character.isDigit(c)) {
         return false;
       }
@@ -90,7 +84,7 @@ class ComputingStatistics {
 
   private static void printResponseTimes(List<Long> responseTimes) {
     System.out.print("Numbers: ");
-    for (int i = 0; i < responseTimes.size(); i++) {
+    for (var i = 0; i < responseTimes.size(); i++) {
       System.out.print(responseTimes.get(i) + (i < responseTimes.size() - 1 ? ", " : ""));
     }
     System.out.println();
