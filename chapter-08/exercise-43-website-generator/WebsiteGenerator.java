@@ -1,17 +1,11 @@
-/**
- * A program that generates a website skeleton.
- * Exercise 43 Website Generator, Exercises for Programmers by Brian Hogan
- *
- * @author James Schmidt
- */
 public class WebsiteGenerator {
   public static void main(String[] args) {
-    String site = Console.getString("Site name: ");
-    String author = Console.getString("Author: ");
-    boolean wantJavaScriptFolder = Console.getBoolean("Do you want a folder for JavaScript? ", "y");
-    boolean wantCssFolder = Console.getBoolean("Do you want a folder for CSS? ", "y");
+    var site = Console.getString("Site name: ");
+    var author = Console.getString("Author: ");
+    var wantJavaScriptFolder = Console.getBoolean("Do you want a folder for JavaScript? ", "y");
+    var wantCssFolder = Console.getBoolean("Do you want a folder for CSS? ", "y");
 
-    boolean isCreated = Files.mkdir(site);
+    var isCreated = Files.mkdir(site);
     if (isCreated) {
       System.out.printf("Created ./%s%n", site);
     }

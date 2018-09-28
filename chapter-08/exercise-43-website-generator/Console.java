@@ -1,15 +1,15 @@
 public class Console {
 
   public static String getString(String prompt) {
-    String input = null;
+    String line = null;
     do {
-      input = System.console().readLine(prompt);
-    } while (Strings.isEmpty(input));
-    return input;
+      line = System.console().readLine(prompt);
+    } while (Strings.isEmpty(line));
+    return line;
   }
 
   public static boolean getBoolean(String prompt, String trueValue) {
-    String input = getString(prompt);
-    return input.toLowerCase().equals(trueValue.toLowerCase());
+    var s = getString(prompt);
+    return s.toLowerCase().equals(trueValue.toLowerCase());
   }
 }
