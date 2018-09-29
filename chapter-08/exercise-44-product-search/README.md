@@ -5,11 +5,11 @@ This exercise calls for dependencies so I reached for Maven. I tried putting off
 ## How to compile
 
 ```bash
-./ProductSearch$ mvn package
+product-search$ mvn package
 ```
 
 ## How to run
 
 ```bash
-./ProductSearch$ java -jar target/ProductSearch-1.0-SNAPSHOT.jar
+product-search$ java -jar target/product-search-1.0.0-SNAPSHOT.jar
 ```
