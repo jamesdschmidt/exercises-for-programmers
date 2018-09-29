@@ -25,9 +25,11 @@ public class Main {
     System.out.printf("Quantity: %d%n", p.getQuantity());
   }
 
-  private static String getString(String p) {
+  private static String getString(String prompt) {
     String line = null;
-    while (isEmpty(line = System.console().readLine(p)));
+    do {
+      line = System.console().readLine(prompt);
+    } while (isEmpty(line));
     return line;
   }
 
