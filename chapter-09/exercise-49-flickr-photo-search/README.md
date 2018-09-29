@@ -8,11 +8,11 @@ Admittedly I got carried away with this one having prior experience in AWT, Swin
 ## How to compile
 
 ```bash
-./flickr-photo-search$ mvn package
+flickr-photo-search$ mvn package
 ```
 
 ## How to run
 
 ```bash
-./flickr-photo-search$ java -jar target/flickr-photo-search-1.0-SNAPSHOT.jar
+flickr-photo-search$ java -jar target/flickr-photo-search-1.0-SNAPSHOT.jar
 ```
