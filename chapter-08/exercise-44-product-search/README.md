@@ -11,5 +11,14 @@ product-search$ mvn package
 ## How to run
 
 ```bash
-product-search$ java -jar target/product-search-1.0.0-SNAPSHOT.jar
+product-search$ java -jar target/product-search-1.0.0.jar
+```
+
+## Example Output
+
+```bash
+What is the product name? Widget
+Name: Widget
+Price: $25.00
+Quantity: 5
 ```
