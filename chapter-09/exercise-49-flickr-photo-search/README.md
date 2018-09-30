@@ -14,5 +14,5 @@ flickr-photo-search$ mvn package
 ## How to run
 
 ```bash
-flickr-photo-search$ java -jar target/flickr-photo-search-1.0-SNAPSHOT.jar
+flickr-photo-search$ java -jar target/flickr-photo-search-1.0.0.jar
 ```
