@@ -1,16 +1,13 @@
-logging:
-  level:
-    root: 'off'
-    org:
-      springframework: 'off'
+logging.level.root: ERROR
 
 spring:
   main:
-    banner-mode: 'off'
+    banner-mode: "off"
+    web-environment: false
 
 com:
-  jamesdschmidt:
+  example:
     movierecommendations:
-      rottenpotatoes:
-        apikey: 34902188-32FC-4D55-B657-2EB1B7A7389F
-        url: http://localhost:8080
+      rotten-potatoes:
+        api-key: 5662925b-bc61-4a7e-825e-a84721697110
+        url: http://localhost:8080/movies
