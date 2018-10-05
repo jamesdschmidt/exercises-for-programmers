@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CurrentTimeServiceApplicationTests {
+public class TimeClientApplicationTests {
 
 	@Test
 	public void contextLoads() {
