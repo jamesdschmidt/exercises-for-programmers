@@ -10,4 +10,6 @@ retirement_year = current_year + years_left
 if years_left < 1:
   print("You can already retire.")
 else:
-  print(f'You have {years_left} years left until you can retire.\nIt\'s {current_year}, so you can retire in {retirement_year}.')
+  print(f"You have {years_left} years left until you can retire.\n"
+         f"It's {current_year}, so you can retire in {retirement_year}.")
+

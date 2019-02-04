@@ -1,2 +1,3 @@
 line = input("What is the input string? ")
-print(f'{line} has {len(line)} characters.')
+print(line, "has", len(line), "characters.")
+
