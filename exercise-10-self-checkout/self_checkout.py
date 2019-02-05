@@ -15,7 +15,8 @@ subtotal = item1_price * item1_quantity + \
 tax = subtotal * TAX_RATE
 total = subtotal + tax
 
-output = "Subtotal: ${0:,.2f}\nTax: ${1:,.2f}\nTotal: ${2:,.2f}" \
-    .format(subtotal, tax, total)
+output = f"Subtotal: ${subtotal:,.2f}\n" \
+         f"Tax: ${tax:,.2f}\n" \
+         f"Total: ${total:,.2f}"
 print(output)
 
