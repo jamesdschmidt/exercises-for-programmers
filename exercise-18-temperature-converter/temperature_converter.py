@@ -6,5 +6,6 @@ if to_celsius:
     converted_temperature = (temperature - 32) * (5 / 9.0)
 else:
     converted_temperature = (temperature * (9 / 5.0)) + 32
-print(f"The temperature in {'Celsius' if to_celsius else 'Fahrenheit'} is {converted_temperature:.1f}.")
+print(f"The temperature in {'Celsius' if to_celsius else 'Fahrenheit'}",
+      f"is {converted_temperature:.1f}.")
 
