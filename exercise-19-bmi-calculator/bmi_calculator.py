@@ -1,7 +1,6 @@
 def float_input(prompt):
-    s = input(prompt)
     try:
-        return float(s)
+        return float(input(prompt))
     except ValueError:
         print("Enter valid number.")
         return float_input(prompt)

@@ -5,9 +5,8 @@ MAX_BLOOD_ALCOHOL_CONTENT = 0.08
 VOLUME_MULTIPLIER = 5.14
 
 def int_input(prompt):
-    s = input(prompt)
     try:
-        return int(s)
+        return int(input(prompt))
     except ValueError:
         print("Enter valid number.")
         return int_input(prompt)
