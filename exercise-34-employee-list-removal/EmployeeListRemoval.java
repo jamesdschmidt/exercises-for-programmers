@@ -6,9 +6,12 @@ class EmployeeListRemoval {
   public static void main(String[] args) {
     var employees = new ArrayList<String>(List.of("John Smith", "Jackie Jackson", "Chris Jones", "Amanda Cullen", "Jeremy Goodwin"));
     printEmployees(employees);
-    if (removeEmployee(employees))
+    if (removeEmployee(employees)) {
       System.out.println();
       printEmployees(employees);
+    } else {
+      System.out.println("\nThe name doesn't exist.");
+    }
   }
 
   private static void printEmployees(List<String> employees) {
@@ -18,11 +21,7 @@ class EmployeeListRemoval {
 
   private static boolean removeEmployee(List<String> employees) {
     var employee = System.console().readLine("%nEnter an employee to remove: ");
-    if (!employees.remove(employee)) {
-      System.out.println("%nThe name doesn't exist.");
-      return false;
-    }
-    return true;
+    return employees.remove(employee);
   }
 }
 
