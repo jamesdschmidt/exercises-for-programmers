@@ -5,29 +5,28 @@ import java.util.List;
 
 class PickingAWinner {
   public static void main(String[] args) {
-    var contestants = new ArrayList<String>();
-
-    while (true) {
-      var contestant = System.console().readLine("Enter a name: ");
-      if (contestant.length() > 0) {
-        contestants.add(contestant);
-      } else {
-        break;
-      }
-    }
-
+    var contestants = getContestants();
     if (contestants.size() > 0) {
       var winner = pickWinner(contestants);
       System.out.printf("The winner is...%s.%n", winner);
     }
   }
+  
+  private static List<String> getContestants() {
+    var contestants = new ArrayList<String>();
+    while (true) {
+      var name = System.console().readLine("Enter a name: ");
+      if (name.length() == 0) {
+        break;
+      }
+      contestants.add(name);
+    }
+    return contestants;
+  }
 
   private static String pickWinner(List<String> contestants) {
-    var index = getRandomIndex(contestants.size());
+    var index = ThreadLocalRandom.current().nextInt(0, contestants.size());
     return contestants.get(index);
   }
-
-  private static int getRandomIndex(int max) {
-    return ThreadLocalRandom.current().nextInt(0, max + 1);
-  }
 }
+
