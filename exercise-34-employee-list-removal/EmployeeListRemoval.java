@@ -5,17 +5,10 @@ import java.util.List;
 class EmployeeListRemoval {
   public static void main(String[] args) {
     var employees = new ArrayList<String>(List.of("John Smith", "Jackie Jackson", "Chris Jones", "Amanda Cullen", "Jeremy Goodwin"));
-    do {
+    printEmployees(employees);
+    if (removeEmployee(employees))
+      System.out.println();
       printEmployees(employees);
-      System.out.println();
-      var employee = getEmployee();
-      System.out.println();
-      removeEmployee(employees, employee);
-    } while (employees.size() > 0);
-  }
-
-  private static String getEmployee() {
-    return System.console().readLine("Enter an employee to remove: ");
   }
 
   private static void printEmployees(List<String> employees) {
@@ -23,10 +16,13 @@ class EmployeeListRemoval {
     employees.forEach(System.out::println);
   }
 
-  private static List removeEmployee(List<String> employees, String employee) {
+  private static boolean removeEmployee(List<String> employees) {
+    var employee = System.console().readLine("%nEnter an employee to remove: ");
     if (!employees.remove(employee)) {
-      System.out.printf("The employee %s does not exist.%n", employee);
+      System.out.println("%nThe name doesn't exist.");
+      return false;
     }
-    return employees;
+    return true;
   }
 }
+
