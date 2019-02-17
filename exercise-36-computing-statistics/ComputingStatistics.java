@@ -62,7 +62,7 @@ class ComputingStatistics {
       sum += Math.pow(value - mean, 2);
     }
 
-    var squaredMean = sum / list.size();
+    var squaredMean = sum / (list.size() - 1);
     return Math.sqrt(squaredMean);
   }
 
