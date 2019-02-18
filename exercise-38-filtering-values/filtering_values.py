@@ -1,6 +1,20 @@
+def split(s):
+    numbers = []
+    current = ""
+    for c in s:
+        if c == " ":
+            if len(current) > 0 and current.isdigit():
+                numbers.append(int(current))
+                current = ""
+        else:
+            current += c
+    if len(current) > 0 and current.isdigit():
+        numbers.append(int(current))
+    return numbers
+
 def numbers_input(prompt):
     try:
-        return [int(n) for n in input(prompt).split()]
+        return [int(n) for n in split(input(prompt))]
     except ValueError:
         return ints_input(prompt)
 
