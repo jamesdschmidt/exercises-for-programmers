@@ -1,4 +1,4 @@
-from random import randrange
+from random import choice
 
 def get_contestants():
     contestants = []
@@ -9,10 +9,7 @@ def get_contestants():
         contestants.append(name)
     return contestants
 
-def pick_winner(contestants):
-    return contestants[randrange(0, len(contestants))]
-
 contestants = get_contestants()
 if len(contestants):
-    print(f"The winner is...{pick_winner(contestants)}")
+    print(f"The winner is...{choice(contestants)}")
 
