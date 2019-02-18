@@ -1,15 +1,8 @@
 from random import randrange
 
-def is_integer(s):
-    try:
-        int(s)
-        return True
-    except ValueError:
-        return False
-
 def get_level():
     s = input("Pick a difficulty level (1, 2, or 3): ")
-    if not is_integer(s) or int(s) < 1 or int(s) > 3:
+    if not s.isdigit() or int(s) < 1 or int(s) > 3:
         return get_level()
     return int(s)
 
@@ -19,7 +12,7 @@ def play(level):
     s = input("I have my number. What's your guess? ")
     while True:
         guesses += 1
-        if is_integer(s):
+        if s.isdigit():
             guess = int(s)
             if guess < answer:
                 s = input("Too low. Guess again: ")
