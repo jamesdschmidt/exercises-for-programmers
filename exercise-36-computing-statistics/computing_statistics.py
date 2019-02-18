@@ -1,19 +1,12 @@
 import math
 
-def is_integer(s):
-    try:
-        int(s)
-        return True
-    except ValueError:
-        return False
-
 def get_numbers():
     numbers = []
     while True:
         s = input("Enter a number: ")
         if s.lower() == "done":
             break;
-        elif is_integer(s):
+        elif s.isdigit():
             numbers.append(int(s))
     return numbers
 
