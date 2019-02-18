@@ -14,12 +14,16 @@ def employees():
                  employee("Jake", "Jacobson", "Programmer", ""),
                  employee("Jacquelyn", "Jackson", "DBA", ""),
                  employee("Sally", "Weber", "Web Developer", "2015-12-18")]
-    employees.sort(key = itemgetter("last"))
     return employees
 
-print("Name                | Position          | Separation Date")
-print("--------------------|-------------------|----------------")
-for e in employees():
-    print(f"{e['first'] + ' ' + e['last']:<20}| {e['position']:<18}| " \
-          f"{e['separation_date']}")
+def print_employees(employees):
+    print("Name                | Position          | Separation Date")
+    print("--------------------|-------------------|----------------")
+    for e in employees:
+        print(f"{e['first'] + ' ' + e['last']:<20}| {e['position']:<18}| " \
+              f"{e['separation_date']}")
+
+employees = employees()
+employees.sort(key = itemgetter("last"))
+print_employees(employees)
 
