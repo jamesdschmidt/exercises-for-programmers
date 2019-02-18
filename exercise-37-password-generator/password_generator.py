@@ -1,10 +1,6 @@
 from random import choice
 from random import randrange
 
-ALPHAS = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-SPECIALS = ["!", "'", "#", "$", "%", "&", "\"", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"]
-NUMBERS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-
 def int_input(prompt):
     try:
         return int(input(prompt))
@@ -12,6 +8,9 @@ def int_input(prompt):
         return int_input(prompt)
     
 def generate_password(length, specials, numbers):
+    ALPHAS = ("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z")
+    SPECIALS = ("!", "'", "#", "$", "%", "&", "\"", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~")
+    NUMBERS = ("0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
     password = ""
     specials_count = specials
     numbers_count = numbers
