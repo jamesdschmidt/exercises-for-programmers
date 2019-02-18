@@ -1,6 +1,5 @@
-from random import randrange
+from random import choice
 
-answers = ["Yes", "No", "Maybe", "Ask again later"]
 input("What's your question? ")
-print(answers[randrange(0, len(answers))])
+print(choice(["Yes", "No", "Maybe", "Ask again later"]))
 
