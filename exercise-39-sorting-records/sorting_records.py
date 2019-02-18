@@ -7,14 +7,13 @@ def employee(first, last, position, separation_date):
             "separation_date": separation_date}
 
 def employees():
-    employees = [employee("John", "Johnson", "Manager", "2016-12-31"),
-                 employee("Tou", "Xiong", "Software Engineer", "2016-10-05"),
-                 employee("Michaela", "Michaelson", "District Manager",
-                          "2015-12-19"),
-                 employee("Jake", "Jacobson", "Programmer", ""),
-                 employee("Jacquelyn", "Jackson", "DBA", ""),
-                 employee("Sally", "Weber", "Web Developer", "2015-12-18")]
-    return employees
+    return [employee("John", "Johnson", "Manager", "2016-12-31"),
+            employee("Tou", "Xiong", "Software Engineer", "2016-10-05"),
+            employee("Michaela", "Michaelson", "District Manager",
+                     "2015-12-19"),
+            employee("Jake", "Jacobson", "Programmer", ""),
+            employee("Jacquelyn", "Jackson", "DBA", ""),
+            employee("Sally", "Weber", "Web Developer", "2015-12-18")]
 
 def print_employees(employees):
     print("Name                | Position          | Separation Date")
