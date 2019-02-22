@@ -15,5 +15,14 @@ The service listens on port 8080
 
 ```bash
 time-service$ curl localhost:8080
-{"currentTime":"2019-02-22T04:07:03.470071Z"}
+{"currentTime":"2019-02-22T05:20:20.481267Z"}
+```
+
+## Time-Client
+
+### How to run
+
+```bash
+time-client$ ./gradlew run
+The current time is 22:20:25 MST February 21 2019.
 ```
