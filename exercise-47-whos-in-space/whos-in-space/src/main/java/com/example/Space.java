@@ -2,7 +2,7 @@ package com.example;
 
 import java.util.List;
 
-public class PeopleInSpace {
+public class Space {
 
   private String message;
   private Integer number;

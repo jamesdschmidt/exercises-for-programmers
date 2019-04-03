@@ -2,12 +2,12 @@ package com.example;
 
 public class Main {
   public static void main(String[] args) {
-    var client = new PeopleInSpaceClient("http://api.open-notify.org/astros.json");
-    var space = client.getPeopleInSpace();
-    printPeopleInSpace(space);
+    var client = new SpaceClient("http://api.open-notify.org/astros.json");
+    var space = client.getSpace();
+    printPeople(space);
   }
 
-  private static void printPeopleInSpace(PeopleInSpace space) {
+  private static void printPeople(Space space) {
     System.out.printf("There are %d people in space right now.%n%n", space.getNumber());
 
     var nameWidth = space.getPeople().stream().mapToInt(p -> p.getName().length()).max().getAsInt();

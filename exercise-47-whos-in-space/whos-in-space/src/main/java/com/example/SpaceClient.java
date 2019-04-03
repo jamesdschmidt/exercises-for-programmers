@@ -6,15 +6,15 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class PeopleInSpaceClient {
+public class SpaceClient {
 
   private String path;
 
-  public PeopleInSpaceClient(String path) {
+  public SpaceClient(String path) {
     this.path = path;
   }
 
-  public PeopleInSpace getPeopleInSpace() {
+  public Space getSpace() {
     try {
       var url = new URL(path);
       var connection = (HttpURLConnection) url.openConnection();
@@ -28,10 +28,10 @@ public class PeopleInSpaceClient {
     }
   }
 
-  private PeopleInSpace parseStream(InputStream s) {
+  private Space parseStream(InputStream s) {
     try {
       var mapper = new ObjectMapper();
-      return mapper.readValue(s, PeopleInSpace.class);
+      return mapper.readValue(s, Space.class);
     } catch (Throwable e) {
       e.printStackTrace();
       return null;
