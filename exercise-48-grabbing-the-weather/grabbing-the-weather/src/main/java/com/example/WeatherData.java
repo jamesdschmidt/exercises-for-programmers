@@ -1,6 +1,6 @@
 package com.example;
 
-public class CurrentWeatherData {
+public class WeatherData {
   private MainWeather main;
   private String name;
 

@@ -5,8 +5,8 @@ public class Main {
     var apiKey = getAppId(args);
     var city = Console.readLine("Where are you? ");
 
-    var client = new CurrentWeatherClient(apiKey);
-    var data = client.getCurrentWeather(city);
+    var client = new WeatherClient(apiKey);
+    var data = client.getWeather(city);
     printWeatherData(data);
   }
 
@@ -18,7 +18,7 @@ public class Main {
     return args[0];
   }
 
-  private static void printWeatherData(CurrentWeatherData d) {
+  private static void printWeatherData(WeatherData d) {
     System.out.printf("%s weather:%n", d.getName());
     System.out.printf("%.0f degrees Fahrenheit%n", kelvinToFahrenheit(d.getMain().getTemp()));
   }
