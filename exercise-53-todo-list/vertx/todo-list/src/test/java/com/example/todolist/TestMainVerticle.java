@@ -1,4 +1,4 @@
-package com.example.todo_list;
+package com.example.todolist;
 
 import io.vertx.core.Vertx;
 import io.vertx.junit5.Timeout;

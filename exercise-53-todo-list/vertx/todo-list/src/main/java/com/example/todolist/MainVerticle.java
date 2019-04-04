@@ -1,4 +1,4 @@
-package com.example.todo_list;
+package com.example.todolist;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
