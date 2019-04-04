@@ -6,7 +6,7 @@ import io.vertx.ext.web.client.WebClient;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
-public class TimeClient extends AbstractVerticle {
+public class MainVerticle extends AbstractVerticle {
   private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss z MMMM d yyyy");
 
   @Override
