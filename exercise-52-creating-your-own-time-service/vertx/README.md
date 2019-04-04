@@ -7,7 +7,7 @@ An HTTP service that serves the current time in UTC. Also a CLI client that show
 ### How to start
 
 ```bash
-time-service$ ./gradlew run
+time-service$ mvn vertx:start
 ```
 The service listens on port 8080
 
@@ -15,7 +15,7 @@ The service listens on port 8080
 
 ```bash
 time-service$ curl localhost:8080
-{"currentTime":"2019-02-22T05:20:20.481267Z"}
+{"currentTime":"2019-04-04T04:03:41.029336Z"}
 ```
 
 ## Time-Client
@@ -23,6 +23,6 @@ time-service$ curl localhost:8080
 ### How to run
 
 ```bash
-time-client$ ./gradlew run
-The current time is 22:20:25 MST February 21 2019.
+time-client$ mvn vertx:run
+The current time is 22:03:51 MDT April 3 2019.
 ```
