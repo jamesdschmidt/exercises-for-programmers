@@ -11,7 +11,7 @@ $ docker run -d -p 6379:6379 redis
 
 After the Redis container is running you can start the application.
 ```bash
-todo-list$ mvn spring-boot:run
+todo-list$ mvn vertx:run
 ...
 Todo List
 0 Research kennels for the puppy
