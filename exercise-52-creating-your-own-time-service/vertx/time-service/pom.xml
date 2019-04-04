@@ -9,7 +9,7 @@
     <java.version>11</java.version>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <vertx-maven-plugin.version>1.0.18</vertx-maven-plugin.version>
-    <vertx.verticle>com.example.TimeService</vertx.verticle>
+    <vertx.verticle>com.example.MainVerticle</vertx.verticle>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <vertx.version>3.7.0</vertx.version>

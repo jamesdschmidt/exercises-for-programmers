@@ -4,7 +4,7 @@ import io.vertx.core.AbstractVerticle;
 
 import java.time.Instant;
 
-public class TimeService extends AbstractVerticle {
+public class MainVerticle extends AbstractVerticle {
   @Override
   public void start() {
     vertx.createHttpServer().requestHandler(handler ->
