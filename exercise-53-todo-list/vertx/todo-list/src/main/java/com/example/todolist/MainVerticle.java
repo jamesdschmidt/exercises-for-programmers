@@ -9,6 +9,9 @@ import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.templ.thymeleaf.ThymeleafTemplateEngine;
 import io.vertx.redis.RedisOptions;
 
+import java.util.Map;
+import java.util.UUID;
+
 public class MainVerticle extends AbstractVerticle {
   private static final Logger LOGGER = LoggerFactory.getLogger(MainVerticle.class);
 
@@ -37,9 +40,10 @@ public class MainVerticle extends AbstractVerticle {
     var server = vertx.createHttpServer();
 
     var router = Router.router(vertx);
-    router.delete("/todos/:id").handler(this::delete);
-    router.get("/todos").handler(this::index);
-    router.post("/todos").handler(this::post);
+
+    router.get("/").handler(this::index);
+    router.post("/").handler(this::post);
+    router.post("/:id/delete").handler(this::delete);
 
     templateEngine = ThymeleafTemplateEngine.create(vertx);
 
@@ -62,6 +66,11 @@ public class MainVerticle extends AbstractVerticle {
   }
 
   private void index(RoutingContext context) {
+    Map<String, String> todos = Map.of(
+      UUID.randomUUID().toString(), "Get milk",
+      UUID.randomUUID().toString(), "Get bread");
+    context.put("todos", todos);
+
     templateEngine.render(context.data(), "templates/index.html", asyncResult -> {
       if (asyncResult.succeeded()) {
         context.response().end(asyncResult.result());

@@ -25,7 +25,7 @@ public class TestMainVerticle {
   @DisplayName("Should start a Web Server on port 8080")
   @Timeout(value = 10, timeUnit = TimeUnit.SECONDS)
   void start_http_server(Vertx vertx, VertxTestContext testContext) throws Throwable {
-    vertx.createHttpClient().getNow(8080, "localhost", "/todos", response -> testContext.verify(() -> {
+    vertx.createHttpClient().getNow(8080, "localhost", "/", response -> testContext.verify(() -> {
       assertTrue(response.statusCode() == 200);
       response.handler(body -> {
         assertTrue(body.toString().contains("Todo List"));
