@@ -9,6 +9,7 @@ import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.templ.thymeleaf.ThymeleafTemplateEngine;
 import io.vertx.redis.RedisOptions;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
@@ -16,6 +17,7 @@ public class MainVerticle extends AbstractVerticle {
   private static final Logger LOGGER = LoggerFactory.getLogger(MainVerticle.class);
 
   private ThymeleafTemplateEngine templateEngine;
+  private Map<String, String> todos = new HashMap<>();
 
   @Override
   public void start(Future<Void> startFuture) throws Exception {
@@ -31,6 +33,8 @@ public class MainVerticle extends AbstractVerticle {
 
   private Future<Void> prepareDatabase() {
     Future<Void> future = Future.future();
+    todos.put(UUID.randomUUID().toString(), "Get milk");
+    todos.put(UUID.randomUUID().toString(), "Get bread");
     future.complete();
     return future;
   }
@@ -42,7 +46,7 @@ public class MainVerticle extends AbstractVerticle {
     var router = Router.router(vertx);
 
     router.get("/").handler(this::index);
-    router.post("/").handler(this::post);
+    router.post("/").handler(this::create);
     router.post("/:id/delete").handler(this::delete);
 
     templateEngine = ThymeleafTemplateEngine.create(vertx);
@@ -66,9 +70,6 @@ public class MainVerticle extends AbstractVerticle {
   }
 
   private void index(RoutingContext context) {
-    Map<String, String> todos = Map.of(
-      UUID.randomUUID().toString(), "Get milk",
-      UUID.randomUUID().toString(), "Get bread");
     context.put("todos", todos);
 
     templateEngine.render(context.data(), "templates/index.html", asyncResult -> {
@@ -80,8 +81,15 @@ public class MainVerticle extends AbstractVerticle {
     });
   }
 
-  private void post(RoutingContext context) {
-
+  private void create(RoutingContext context) {
+    System.out.println(context.request().getParam("avocado"));
+    System.out.println(context.request().getFormAttribute("avocado"));
+//    var todo = context.request().getParam("todo");
+//    System.out.println(todo);
+    todos.put(UUID.randomUUID().toString(), "hey there!");
+    context.response().setStatusCode(303);
+    context.response().putHeader("Location", "/");
+    context.response().end();
   }
 
 }

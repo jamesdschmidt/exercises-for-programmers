@@ -19,14 +19,16 @@
         <table class="table table-sm">
           <tbody>
             <tr th:each="todo : ${todos}">
-              <td th:text="${todo.key}">Key</td>
+              <input type="hidden" name="id" th:value="${todo.key}">
               <td th:text="${todo.value}">Value</td>
             </tr>
           </tbody>
         </table>
-        <form action="POST">
-          <input type="text" name="todo" th:value="${todo}" />
-          <input type="submit" />
+        <form class="form-inline" action="/" method="post">
+          <div class="form-group mb-2">
+            <input type="text" class="form-control" id="avocado" name="avocado" />
+          </div>
+          <button type="submit" class="btn btn-primary mb-2">+</button>
         </form>
       </div>
     </div>
