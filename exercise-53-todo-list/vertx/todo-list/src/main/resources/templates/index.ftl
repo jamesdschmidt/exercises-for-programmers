@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,26 +14,24 @@
   <div class="container">
     <h1>Todo List</h1>
 
-    <div class="row">
-      <div class="col-md-12 mt-1">
-        <table class="table table-sm">
-          <tbody>
-            <tr th:each="todo : ${todos}">
-              <input type="hidden" name="id" th:value="${todo.key}">
-              <td th:text="${todo.value}">Value</td>
-            </tr>
-          </tbody>
-        </table>
-        <form class="form-inline" action="/" method="post">
-          <div class="form-group mb-2">
-            <input type="text" class="form-control" id="avocado" name="avocado" />
-          </div>
-          <button type="submit" class="btn btn-primary mb-2">+</button>
-        </form>
+    <#list todos?keys as key>
+    <form action="/${key}/delete" method="post">
+      <div class="form-check">
+        <label>
+          <input class="form-check-input" type="checkbox" onchange="this.form.submit()" />
+          ${todos[key]}
+        </label>
       </div>
-    </div>
+    </form>
+    </#list>
 
-  </div> <!-- .container -->
+    <form action="/" method="post">
+      <div class="form-group">
+        <input autofocus type="text" class="form-control form-control-sm" name="todo" />
+        <input type="submit" style="display: none" />
+      </div>
+    </form>
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
           integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
