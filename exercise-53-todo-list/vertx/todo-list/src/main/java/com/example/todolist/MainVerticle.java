@@ -71,9 +71,7 @@ public class MainVerticle extends AbstractVerticle {
     if (id != null && !id.isBlank()) {
       todos.remove(id);
     }
-    context.response().setStatusCode(303);
-    context.response().putHeader("Location", "/");
-    context.response().end();
+    redirect(context, "/");
   }
 
   private void index(RoutingContext context) {
@@ -92,8 +90,12 @@ public class MainVerticle extends AbstractVerticle {
     if (todo != null && !todo.isEmpty()) {
       todos.put(UUID.randomUUID().toString(), todo);
     }
+    redirect(context, "/");
+  }
+
+  private void redirect(RoutingContext context, String location) {
     context.response().setStatusCode(303);
-    context.response().putHeader("Location", "/");
+    context.response().putHeader("Location", location);
     context.response().end();
   }
 }
