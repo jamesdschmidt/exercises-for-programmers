@@ -78,9 +78,8 @@ public class MainVerticle extends AbstractVerticle {
 
   private void index(RoutingContext context) {
     context.put("todos", todos);
-    templateEngine.render(context.data(), "templates/index.ftl", asyncResult -> {
+    templateEngine.render(context.data(), "templates/index", asyncResult -> {
       if (asyncResult.succeeded()) {
-        context.response().putHeader("Content-Type", "text/html");
         context.response().end(asyncResult.result());
       } else {
         context.fail(asyncResult.cause());
