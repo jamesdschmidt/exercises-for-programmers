@@ -10,15 +10,14 @@ import io.vertx.ext.web.handler.BodyHandler;
 import io.vertx.ext.web.templ.freemarker.FreeMarkerTemplateEngine;
 import io.vertx.redis.RedisOptions;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainVerticle extends AbstractVerticle {
   private static final Logger LOGGER = LoggerFactory.getLogger(MainVerticle.class);
 
   private FreeMarkerTemplateEngine templateEngine;
-  private Map<String, String> todos = new HashMap<>();
+  private List<String> todos = new ArrayList<>();
 
   @Override
   public void start(Future<Void> startFuture) throws Exception {
@@ -34,8 +33,8 @@ public class MainVerticle extends AbstractVerticle {
 
   private Future<Void> prepareDatabase() {
     Future<Void> future = Future.future();
-    todos.put(UUID.randomUUID().toString(), "Get milk");
-    todos.put(UUID.randomUUID().toString(), "Get bread");
+    todos.add("Get milk");
+    todos.add("Get bread");
     future.complete();
     return future;
   }
@@ -69,7 +68,10 @@ public class MainVerticle extends AbstractVerticle {
   private void delete(RoutingContext context) {
     var id = context.request().getParam("id");
     if (id != null && !id.isBlank()) {
-      todos.remove(id);
+      var index = Integer.parseInt(id);
+      if (index < todos.size()) {
+        todos.remove(index);
+      }
     }
     redirect(context, "/");
   }
@@ -88,7 +90,7 @@ public class MainVerticle extends AbstractVerticle {
   private void create(RoutingContext context) {
     String todo = context.request().getParam("todo");
     if (todo != null && !todo.isEmpty()) {
-      todos.put(UUID.randomUUID().toString(), todo);
+      todos.add(todo);
     }
     redirect(context, "/");
   }
