@@ -1,4 +1,4 @@
-package com.example.todolist;
+package com.example;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
@@ -8,7 +8,6 @@ import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.handler.BodyHandler;
 import io.vertx.ext.web.templ.freemarker.FreeMarkerTemplateEngine;
-import io.vertx.redis.RedisOptions;
 
 import java.util.ArrayList;
 import java.util.List;
