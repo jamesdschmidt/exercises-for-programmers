@@ -5,119 +5,77 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Future;
 import io.vertx.core.Handler;
 import io.vertx.core.eventbus.Message;
+import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.logging.Logger;
 import io.vertx.core.logging.LoggerFactory;
-import io.vertx.redis.client.Redis;
-import io.vertx.redis.client.RedisAPI;
-import io.vertx.redis.client.RedisOptions;
+import io.vertx.redis.RedisClient;
+import io.vertx.redis.client.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RedisVerticle extends AbstractVerticle {
   private static final Logger LOGGER = LoggerFactory.getLogger(RedisVerticle.class);
 
-  public static final String TODOS_ADDRESS = "todos";
+  public static final String LIST_TODOS_ADDRESS = "todos.list";
+  public static final String CREATE_TODOS_ADDRESS = "todos.create";
+  public static final String DELETE_TODOS_ADDRESS = "todos.delete";
 
-  private static final int MAX_RECONNECT_RETRIES = 16;
+  private static final String KEY = "com.example.todolist";
 
-  private RedisOptions options = new RedisOptions();
   private Redis client;
 
   @Override
   public void start(Future<Void> startFuture) throws Exception {
-    createRedisClient(onCreate -> {
-      if (onCreate.succeeded()) {
-        vertx.eventBus().consumer(TODOS_ADDRESS, this::onMessage);
-        startFuture.complete();
+    Redis.createClient(vertx, new RedisOptions())
+      .connect(onConnect -> {
+        if (onConnect.succeeded()) {
+          client = onConnect.result();
+          vertx.eventBus().consumer(LIST_TODOS_ADDRESS, this::list);
+          vertx.eventBus().consumer(CREATE_TODOS_ADDRESS, this::create);
+          vertx.eventBus().consumer(DELETE_TODOS_ADDRESS, this::delete);
+          startFuture.complete();
+        } else {
+          LOGGER.error("Redis preparation error", onConnect.cause());
+          startFuture.fail(onConnect.cause());
+        }
+      });
+  }
+
+  private void list(Message<JsonObject> message) {
+    client.send(Request.cmd(Command.LRANGE).arg(KEY).arg(0).arg(-1), onSend -> {
+      if (onSend.succeeded()) {
+        var todos = new JsonArray();
+        var response = onSend.result();
+        for (int i = 0; i < response.size(); i++) {
+          todos.add(response.get(i).toString());
+        }
+        message.reply(new JsonObject().put("todos", todos));
       } else {
-        LOGGER.error("Database preparation error", onCreate.cause());
-        startFuture.fail(onCreate.cause());
+        message.fail(500, "Internal Server Error");
       }
     });
   }
 
-  public enum ErrorCodes {
-    NO_ACTION_SPECIFIED,
-    BAD_ACTION,
-    DB_ERROR
-  }
-
-  public void onMessage(Message<JsonObject> message) {
-    if (!message.headers().contains("action")) {
-      LOGGER.error("No action header specified for message with headers {} and body {}",
-        message.headers(), message.body().encodePrettily()); message.fail(ErrorCodes.NO_ACTION_SPECIFIED.ordinal(), "No action header specified");
-      return;
-    }
-    String action = message.headers().get("action");
-    switch (action) {
-      case "list":
-        list(message);
-        break;
-      case "create":
-        create(message);
-        break;
-      case "delete":
-        delete(message);
-        break;
-      default:
-        message.fail(ErrorCodes.BAD_ACTION.ordinal(), "Bad action: " + action);
-    }
-  }
-
-  /**
-   * Will create a redis client and setup a reconnect handler when there is
-   * an exception in the connection.
-   */
-  private void createRedisClient(Handler<AsyncResult<Redis>> handler) {
-    Redis.createClient(vertx, options)
-      .connect(onConnect -> {
-        if (onConnect.succeeded()) {
-          client = onConnect.result();
-          // make sure the client is reconnected on error
-          client.exceptionHandler(e -> {
-            // attempt to reconnect
-            attemptReconnect(0);
-          });
-        }
-        // allow further processing
-        handler.handle(onConnect);
-      });
-  }
-
-  /**
-   * Attempt to reconnect up to MAX_RECONNECT_RETRIES
-   */
-  private void attemptReconnect(int retry) {
-    if (retry > MAX_RECONNECT_RETRIES) {
-      // we should stop now, as there's nothing we can do.
-    } else {
-      // retry with backoff up to 1280ms
-      long backoff = (long) (Math.pow(2, MAX_RECONNECT_RETRIES - Math.max(MAX_RECONNECT_RETRIES - retry, 9)) * 10);
-
-      vertx.setTimer(backoff, timer -> createRedisClient(onReconnect -> {
-        if (onReconnect.failed()) {
-          attemptReconnect(retry + 1);
-        }
-      }));
-    }
-  }
-
-  private void list(Message<JsonObject> message) {
-  }
-
-  private void create(Message<JsonObject> message) {
-
-  }
-
-  private void delete(Message<JsonObject> message) {
-    var id = message.body().getString("id");
-
-    var redis = RedisAPI.api(client);
-    redis.del(List.of(id), res -> {
-      if (res.succeeded()) {
-        message.reply("success");
+  private void create(Message<String> message) {
+    client.send(Request.cmd(Command.RPUSH).arg(KEY).arg(message.body()), onSend -> {
+      if (onSend.succeeded()) {
+        // Return the length of the list after the append.
+        message.reply(onSend.result().toInteger());
       } else {
+        message.fail(500, "Internal Server Error");
+      }
+    });
+  }
+
+  private void delete(Message<String> message) {
+    client.send(Request.cmd(Command.LREM).arg(KEY).arg(1).arg(message.body()), onSend -> {
+      if (onSend.succeeded()) {
+        // Return the number of occurrences removed.
+        message.reply(onSend.result().toInteger());
+      } else {
+        message.fail(500, "Internal Server Error");
       }
     });
   }
