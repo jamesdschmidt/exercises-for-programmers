@@ -27,7 +27,7 @@ public class HttpVerticle extends AbstractVerticle {
     router.get("/").handler(this::indexHandler);
     router.post().handler(BodyHandler.create());
     router.post("/").handler(this::createHandler);
-    router.post("/:todo/delete").handler(this::deleteHandler);
+    router.post("/:index/delete").handler(this::deleteHandler);
 
     int port = config().getInteger(CONFIG_HTTP_SERVER_PORT, 8080);
 
@@ -46,9 +46,8 @@ public class HttpVerticle extends AbstractVerticle {
   }
 
   private void deleteHandler(RoutingContext context) {
-    var todo = context.request().getParam("todo");
-    // TODO: validate todo value
-    vertx.eventBus().send(RedisVerticle.DELETE_TODOS_ADDRESS, todo, replyHandler -> {
+    var index = context.request().getParam("index");
+    vertx.eventBus().send(RedisVerticle.DELETE_TODOS_ADDRESS, index, replyHandler -> {
       if (replyHandler.succeeded()) {
         redirect(context, "/");
       } else {

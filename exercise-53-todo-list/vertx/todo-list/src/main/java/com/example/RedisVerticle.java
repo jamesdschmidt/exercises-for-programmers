@@ -14,6 +14,7 @@ import io.vertx.redis.client.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class RedisVerticle extends AbstractVerticle {
   private static final Logger LOGGER = LoggerFactory.getLogger(RedisVerticle.class);
@@ -70,10 +71,17 @@ public class RedisVerticle extends AbstractVerticle {
   }
 
   private void delete(Message<String> message) {
-    client.send(Request.cmd(Command.LREM).arg(KEY).arg(1).arg(message.body()), onSend -> {
-      if (onSend.succeeded()) {
-        // Return the number of occurrences removed.
-        message.reply(onSend.result().toInteger());
+    var uuid = UUID.randomUUID().toString();
+    client.send(Request.cmd(Command.LSET).arg(KEY).arg(message.body()).arg(uuid), result -> {
+      if (result.succeeded()) {
+        client.send(Request.cmd(Command.LREM).arg(KEY).arg(0).arg(uuid), onSend -> {
+          if (onSend.succeeded()) {
+            // Return the number of occurrences removed.
+            message.reply(onSend.result().toInteger());
+          } else {
+            message.fail(500, "Internal Server Error");
+          }
+        });
       } else {
         message.fail(500, "Internal Server Error");
       }

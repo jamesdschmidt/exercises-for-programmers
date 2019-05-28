@@ -15,7 +15,7 @@
     <h1>Todo List</h1>
 
     <#list todos as todo>
-    <form action="/${todo}/delete" method="post">
+    <form action="/${todo?index}/delete" method="post">
       <div class="form-check">
         <label>
           <input class="form-check-input" type="checkbox" onchange="this.form.submit()" />
