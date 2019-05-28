@@ -10,7 +10,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 public class MainVerticleTests {
 
   @Test
-  void testDeployingVerticles(Vertx vertx, VertxTestContext testContext) {
-    vertx.deployVerticle(new MainVerticle(), testContext.succeeding(id -> testContext.completeNow()));
+  public void testDeployingVerticles(Vertx vertx, VertxTestContext context) {
+    vertx.deployVerticle(new MainVerticle(), context.succeeding(id -> context.completeNow()));
   }
 }
