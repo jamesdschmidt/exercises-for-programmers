@@ -16,25 +16,27 @@ import java.util.List;
 
 public class RedisVerticle extends AbstractVerticle {
   private static final Logger LOGGER = LoggerFactory.getLogger(RedisVerticle.class);
+  private static final String REDIS_KEY = "com.example.todo-list";
+  private static final int MAX_RECONNECT_RETRIES = 16;
 
   public static final String TODOS_ADDRESS = "todos";
 
-  private static final int MAX_RECONNECT_RETRIES = 16;
-
-  private RedisOptions options = new RedisOptions();
-  private Redis client;
+  private RedisAPI redis;
 
   @Override
   public void start(Future<Void> startFuture) throws Exception {
-    createRedisClient(onCreate -> {
-      if (onCreate.succeeded()) {
-        vertx.eventBus().consumer(TODOS_ADDRESS, this::onMessage);
-        startFuture.complete();
-      } else {
-        LOGGER.error("Database preparation error", onCreate.cause());
-        startFuture.fail(onCreate.cause());
-      }
-    });
+    Redis.createClient(vertx, new RedisOptions())
+      .connect(onConnect -> {
+        if (onConnect.succeeded()) {
+          redis = RedisAPI.api(onConnect.result());
+          vertx.eventBus().consumer(TODOS_ADDRESS, this::onMessage);
+          LOGGER.debug("RedisVerticle::start");
+          startFuture.complete();
+        } else {
+          LOGGER.error("Error in RedisVerticle::start", onConnect.cause());
+          startFuture.fail(onConnect.cause());
+        }
+      });
   }
 
   public enum ErrorCodes {
@@ -61,63 +63,37 @@ public class RedisVerticle extends AbstractVerticle {
         delete(message);
         break;
       default:
-        message.fail(ErrorCodes.BAD_ACTION.ordinal(), "Bad action: " + action);
-    }
-  }
-
-  /**
-   * Will create a redis client and setup a reconnect handler when there is
-   * an exception in the connection.
-   */
-  private void createRedisClient(Handler<AsyncResult<Redis>> handler) {
-    Redis.createClient(vertx, options)
-      .connect(onConnect -> {
-        if (onConnect.succeeded()) {
-          client = onConnect.result();
-          // make sure the client is reconnected on error
-          client.exceptionHandler(e -> {
-            // attempt to reconnect
-            attemptReconnect(0);
-          });
-        }
-        // allow further processing
-        handler.handle(onConnect);
-      });
-  }
-
-  /**
-   * Attempt to reconnect up to MAX_RECONNECT_RETRIES
-   */
-  private void attemptReconnect(int retry) {
-    if (retry > MAX_RECONNECT_RETRIES) {
-      // we should stop now, as there's nothing we can do.
-    } else {
-      // retry with backoff up to 1280ms
-      long backoff = (long) (Math.pow(2, MAX_RECONNECT_RETRIES - Math.max(MAX_RECONNECT_RETRIES - retry, 9)) * 10);
-
-      vertx.setTimer(backoff, timer -> createRedisClient(onReconnect -> {
-        if (onReconnect.failed()) {
-          attemptReconnect(retry + 1);
-        }
-      }));
+        message.fail(ErrorCodes.BAD_ACTION.ordinal(), "RedisVerticle::onMessage -> Bad action: " + action);
     }
   }
 
   private void list(Message<JsonObject> message) {
+    redis.lrange(REDIS_KEY, "0", "-1", asyncResult -> {
+      if (asyncResult.succeeded()) {
+        message.reply("list", asyncResult.result().)
+      } else {
+        message.reply("failure");
+      }
+    });
   }
 
   private void create(Message<JsonObject> message) {
+    redis.rpush(REDIS_KEY, message.body().getString("value"), asyncResult -> {
+      if (asyncResult.succeeded()) {
+        message.reply(true);
+      } else {
+        message.reply(false);
+      }
+    });
 
   }
 
   private void delete(Message<JsonObject> message) {
-    var id = message.body().getString("id");
-
-    var redis = RedisAPI.api(client);
-    redis.del(List.of(id), res -> {
-      if (res.succeeded()) {
-        message.reply("success");
+    redis.lrem(REDIS_KEY, message.body().getString("index"), asyncResult -> {
+      if (asyncResult.succeeded()) {
+        message.reply(true);
       } else {
+        message.reply(false);
       }
     });
   }
