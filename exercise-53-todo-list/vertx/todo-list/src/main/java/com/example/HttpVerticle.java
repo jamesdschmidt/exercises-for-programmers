@@ -2,7 +2,6 @@ package com.example;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
-import io.vertx.core.eventbus.DeliveryOptions;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.logging.Logger;
 import io.vertx.core.logging.LoggerFactory;
@@ -11,8 +10,8 @@ import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.handler.BodyHandler;
 import io.vertx.ext.web.templ.freemarker.FreeMarkerTemplateEngine;
 
-public class HttpServerVerticle extends AbstractVerticle {
-  private static final Logger LOGGER = LoggerFactory.getLogger(HttpServerVerticle.class);
+public class HttpVerticle extends AbstractVerticle {
+  private static final Logger LOGGER = LoggerFactory.getLogger(HttpVerticle.class);
 
   public static final String CONFIG_HTTP_SERVER_PORT = "http.server.port";
 
@@ -20,13 +19,15 @@ public class HttpServerVerticle extends AbstractVerticle {
 
   @Override
   public void start(Future<Void> startFuture) throws Exception {
+    LOGGER.debug("start()");
+
     templateEngine = FreeMarkerTemplateEngine.create(vertx);
 
     var router = Router.router(vertx);
-    router.get("/").handler(this::index);
+    router.get("/").handler(this::indexHandler);
     router.post().handler(BodyHandler.create());
-    router.post("/").handler(this::create);
-    router.post("/:id/delete").handler(this::delete);
+    router.post("/").handler(this::createHandler);
+    router.post("/:index/delete").handler(this::deleteHandler);
 
     int port = config().getInteger(CONFIG_HTTP_SERVER_PORT, 8080);
 
@@ -44,45 +45,44 @@ public class HttpServerVerticle extends AbstractVerticle {
       });
   }
 
-  private void delete(RoutingContext context) {
-    var id = context.request().getParam("id");
-    var options = new DeliveryOptions().addHeader("action", "delete");
-    vertx.eventBus().send(RedisVerticle.TODOS_ADDRESS, id, options, reply -> {
-      if (reply.succeeded()) {
+  private void deleteHandler(RoutingContext context) {
+    var index = context.request().getParam("index");
+    vertx.eventBus().send(RedisVerticle.DELETE_TODOS_ADDRESS, index, replyHandler -> {
+      if (replyHandler.succeeded()) {
         redirect(context, "/");
       } else {
-        context.fail(reply.cause());
+        context.fail(replyHandler.cause());
       }
     });
-    redirect(context, "/");
   }
 
-  private void index(RoutingContext context) {
-    var options = new DeliveryOptions().addHeader("action", "list");
-    vertx.eventBus().send(RedisVerticle.TODOS_ADDRESS, new JsonObject(), options, reply -> {
-      if (reply.succeeded()) {
-        context.put("todos", reply.result().body());
+  private void indexHandler(RoutingContext context) {
+    vertx.eventBus().send(RedisVerticle.LIST_TODOS_ADDRESS, new JsonObject(), replyHandler -> {
+      if (replyHandler.succeeded()) {
+        var json = (JsonObject) replyHandler.result().body();
+        context.put("todos", json.getJsonArray("todos"));
         templateEngine.render(context.data(), "templates/index", asyncResult -> {
           if (asyncResult.succeeded()) {
             context.response().end(asyncResult.result());
           } else {
+            LOGGER.error(asyncResult.cause());
             context.fail(asyncResult.cause());
           }
         });
       } else {
-        context.fail(reply.cause());
+        LOGGER.error(replyHandler.cause());
+        context.fail(replyHandler.cause());
       }
     });
   }
 
-  private void create(RoutingContext context) {
+  private void createHandler(RoutingContext context) {
     String todo = context.request().getParam("todo");
-    var options = new DeliveryOptions().addHeader("action", "create");
-    vertx.eventBus().send(RedisVerticle.TODOS_ADDRESS, todo, options, reply -> {
-      if (reply.succeeded()) {
+    vertx.eventBus().send(RedisVerticle.CREATE_TODOS_ADDRESS, todo, replyHandler -> {
+      if (replyHandler.succeeded()) {
         redirect(context, "/");
       } else {
-        context.fail(reply.cause());
+        context.fail(replyHandler.cause());
       }
     });
   }

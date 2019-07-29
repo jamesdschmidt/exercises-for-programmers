@@ -5,95 +5,87 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Future;
 import io.vertx.core.Handler;
 import io.vertx.core.eventbus.Message;
+import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.logging.Logger;
 import io.vertx.core.logging.LoggerFactory;
-import io.vertx.redis.client.Redis;
-import io.vertx.redis.client.RedisAPI;
-import io.vertx.redis.client.RedisOptions;
+import io.vertx.redis.RedisClient;
+import io.vertx.redis.client.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class RedisVerticle extends AbstractVerticle {
   private static final Logger LOGGER = LoggerFactory.getLogger(RedisVerticle.class);
   private static final String REDIS_KEY = "com.example.todo-list";
   private static final int MAX_RECONNECT_RETRIES = 16;
 
-  public static final String TODOS_ADDRESS = "todos";
+  public static final String LIST_TODOS_ADDRESS = "todos.list";
+  public static final String CREATE_TODOS_ADDRESS = "todos.create";
+  public static final String DELETE_TODOS_ADDRESS = "todos.delete";
 
-  private RedisAPI redis;
+  private static final String KEY = "com.example.todolist";
+
+  private Redis client;
 
   @Override
   public void start(Future<Void> startFuture) throws Exception {
     Redis.createClient(vertx, new RedisOptions())
       .connect(onConnect -> {
         if (onConnect.succeeded()) {
-          redis = RedisAPI.api(onConnect.result());
-          vertx.eventBus().consumer(TODOS_ADDRESS, this::onMessage);
-          LOGGER.debug("RedisVerticle::start");
+          client = onConnect.result();
+          vertx.eventBus().consumer(LIST_TODOS_ADDRESS, this::list);
+          vertx.eventBus().consumer(CREATE_TODOS_ADDRESS, this::create);
+          vertx.eventBus().consumer(DELETE_TODOS_ADDRESS, this::delete);
           startFuture.complete();
         } else {
-          LOGGER.error("Error in RedisVerticle::start", onConnect.cause());
+          LOGGER.error("Redis preparation error", onConnect.cause());
           startFuture.fail(onConnect.cause());
         }
       });
   }
 
-  public enum ErrorCodes {
-    NO_ACTION_SPECIFIED,
-    BAD_ACTION,
-    DB_ERROR
-  }
-
-  public void onMessage(Message<JsonObject> message) {
-    if (!message.headers().contains("action")) {
-      LOGGER.error("No action header specified for message with headers {} and body {}",
-        message.headers(), message.body().encodePrettily()); message.fail(ErrorCodes.NO_ACTION_SPECIFIED.ordinal(), "No action header specified");
-      return;
-    }
-    String action = message.headers().get("action");
-    switch (action) {
-      case "list":
-        list(message);
-        break;
-      case "create":
-        create(message);
-        break;
-      case "delete":
-        delete(message);
-        break;
-      default:
-        message.fail(ErrorCodes.BAD_ACTION.ordinal(), "RedisVerticle::onMessage -> Bad action: " + action);
-    }
-  }
-
   private void list(Message<JsonObject> message) {
-    redis.lrange(REDIS_KEY, "0", "-1", asyncResult -> {
-      if (asyncResult.succeeded()) {
-        message.reply("list", asyncResult.result().)
+    client.send(Request.cmd(Command.LRANGE).arg(KEY).arg(0).arg(-1), onSend -> {
+      if (onSend.succeeded()) {
+        var todos = new JsonArray();
+        var response = onSend.result();
+        for (int i = 0; i < response.size(); i++) {
+          todos.add(response.get(i).toString());
+        }
+        message.reply(new JsonObject().put("todos", todos));
       } else {
-        message.reply("failure");
+        message.fail(500, "Internal Server Error");
       }
     });
   }
 
-  private void create(Message<JsonObject> message) {
-    redis.rpush(REDIS_KEY, message.body().getString("value"), asyncResult -> {
-      if (asyncResult.succeeded()) {
-        message.reply(true);
+  private void create(Message<String> message) {
+    client.send(Request.cmd(Command.RPUSH).arg(KEY).arg(message.body()), onSend -> {
+      if (onSend.succeeded()) {
+        // Return the length of the list after the append.
+        message.reply(onSend.result().toInteger());
       } else {
-        message.reply(false);
+        message.fail(500, "Internal Server Error");
       }
     });
-
   }
 
-  private void delete(Message<JsonObject> message) {
-    redis.lrem(REDIS_KEY, message.body().getString("index"), asyncResult -> {
-      if (asyncResult.succeeded()) {
-        message.reply(true);
+  private void delete(Message<String> message) {
+    var uuid = UUID.randomUUID().toString();
+    client.send(Request.cmd(Command.LSET).arg(KEY).arg(message.body()).arg(uuid), result -> {
+      if (result.succeeded()) {
+        client.send(Request.cmd(Command.LREM).arg(KEY).arg(0).arg(uuid), onSend -> {
+          if (onSend.succeeded()) {
+            // Return the number of occurrences removed.
+            message.reply(onSend.result().toInteger());
+          } else {
+            message.fail(500, "Internal Server Error");
+          }
+        });
       } else {
-        message.reply(false);
+        message.fail(500, "Internal Server Error");
       }
     });
   }
