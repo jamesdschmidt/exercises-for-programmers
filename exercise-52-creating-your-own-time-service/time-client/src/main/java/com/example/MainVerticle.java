@@ -12,7 +12,7 @@ public class MainVerticle extends AbstractVerticle {
   @Override
   public void start() throws Exception {
     WebClient.create(vertx)
-        .get(8080, "localhost", "/")
+        .get(8888, "localhost", "/")
         .timeout(5000)
         .send(handler -> {
             if (handler.succeeded()) {
