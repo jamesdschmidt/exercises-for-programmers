@@ -1,9 +1,11 @@
-import java.util.concurrent.ThreadLocalRandom;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 class PickingAWinner {
+  private static Random rand = new Random();
+  
   public static void main(String[] args) {
     var contestants = getContestants();
     if (contestants.size() > 0) {
@@ -25,7 +27,7 @@ class PickingAWinner {
   }
 
   private static String pickWinner(List<String> contestants) {
-    var index = ThreadLocalRandom.current().nextInt(0, contestants.size());
+    var index = rand.nextInt(contestants.size());
     return contestants.get(index);
   }
 }

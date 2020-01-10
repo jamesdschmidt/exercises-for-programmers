@@ -5,13 +5,13 @@ A program to show who’s in space right now.
 ## How to compile
 
 ```bash
-whos-in-space$ mvn package
+$ mvn package
 ```
 
 ## How to run
 
 ```bash
-whos-in-space$ java -jar target/whos-in-space-1.0.0.jar
+$ java -jar target/whos-in-space-1.0.0.jar
 ```
 
 ## Example Output
