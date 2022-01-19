@@ -16,6 +16,6 @@ class InventoryService {
   }
 
   public Optional<Product> findProduct(String productName) {
-    return inventory.getProducts().stream().filter(p -> p.getName().equals(productName)).findFirst();
+    return inventory.getProducts().stream().filter(p -> p.name().equals(productName)).findFirst();
   }
 }
