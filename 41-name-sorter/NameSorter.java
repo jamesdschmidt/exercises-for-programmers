@@ -20,7 +20,7 @@ class NameSorter {
       while ((line = reader.readLine()) != null) {
         String[] parts = line.split(", ");
         if (parts != null && parts.length > 1) {
-          names.add(new Name(parts[1], parts[0]));
+          names.add(new Name(parts[0], parts[1]));
         }
       }
     } catch (Throwable e) {
@@ -33,7 +33,7 @@ class NameSorter {
     try (var writer = new PrintWriter(new FileWriter(filename))) {
       writer.printf("Total of %d names%n", names.size());
       writer.println("-----------------");
-      names.forEach(name -> writer.println(name));
+      names.forEach(name -> writer.printf("%s, %s%n", name.lastName(), name.firstName()));
     } catch (Throwable e) {
       e.printStackTrace();
     }
@@ -50,11 +50,6 @@ class NameSorter {
       } else {
         return lastName.compareTo(other.lastName());
       }
-    }
-
-    @Override
-    public String toString() {
-      return String.format("%s, %s", lastName, firstName);
     }
   }
 }
