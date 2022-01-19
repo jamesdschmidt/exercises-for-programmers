@@ -32,7 +32,7 @@ public class FlickrClient {
 
   private List<String> parseLinks(FlickrFeed f) {
     List<String> links = new ArrayList<>();
-    f.getItems().forEach(i -> links.add(i.getMedia().getM()));
+    f.items().forEach(i -> links.add(i.media().m()));
     return links;
   }
 

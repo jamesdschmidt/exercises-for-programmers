@@ -18,7 +18,7 @@ public class FlickrSearchService extends Service<List<String>> {
 
   protected Task<List<String>> createTask() {
     final String _search = getSearch();
-    return new Task<List<String>>() {
+    return new Task<>() {
       protected List<String> call() {
         return client.search(_search);
       }

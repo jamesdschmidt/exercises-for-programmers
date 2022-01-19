@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  
+
   <groupId>com.example</groupId>
   <artifactId>flickr-photo-search</artifactId>
   <packaging>jar</packaging>
@@ -9,10 +9,11 @@
   <name>Flickr Photo Search</name>
 
   <properties>
-    <java.version>11</java.version>
-    <jackson.version>2.12.1</jackson.version>
-    <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-    <maven-shade-plugin.version>3.2.1</maven-shade-plugin.version>
+    <java.version>17</java.version>
+    <jackson.version>2.13.1</jackson.version>
+    <javafx-controls.version>17.0.1</javafx-controls.version>
+    <maven-compiler-plugin.version>3.9.0</maven-compiler-plugin.version>
+    <maven-shade-plugin.version>3.2.4</maven-shade-plugin.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -38,7 +39,7 @@
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-controls</artifactId>
-      <version>11</version>
+      <version>${javafx-controls.version}</version>
     </dependency>
   </dependencies>
 
@@ -50,6 +51,8 @@
         <version>${maven-compiler-plugin.version}</version>
         <configuration>
           <release>${java.version}</release>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
         </configuration>
       </plugin>
       <plugin>
