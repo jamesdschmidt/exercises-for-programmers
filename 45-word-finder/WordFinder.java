@@ -18,14 +18,12 @@ public class WordFinder {
   }
 
   private static String getString(String prompt) {
-    String line = null;
+    String line;
     do {
       line = System.console().readLine(prompt);
-    } while (isEmpty(line));
+    } while (line == null || line.isEmpty());
     return line;
   }
-
-  private static boolean isEmpty(String s) { return s == null || s.length() == 0; }
 
   private static String readFile(String fileName) {
     try {
