@@ -11,7 +11,7 @@ public class Main {
   }
 
   private static String getAppId(String[] args) {
-    if (Arrays.isEmpty(args) || Strings.isEmpty(args[0])) {
+    if (args == null || args.length == 0 || args[0] == null || args[0].isEmpty()) {
       System.err.println("The API Key for http://openweathermap.org/current must be specified as an argument.");
       System.exit(1);
     }
@@ -19,8 +19,8 @@ public class Main {
   }
 
   private static void printWeatherData(WeatherData d) {
-    System.out.printf("%s weather:%n", d.getName());
-    System.out.printf("%.0f degrees Fahrenheit%n", kelvinToFahrenheit(d.getMain().getTemp()));
+    System.out.printf("%s weather:%n", d.name());
+    System.out.printf("%.0f degrees Fahrenheit%n", kelvinToFahrenheit(d.main().temp()));
   }
 
   private static double kelvinToFahrenheit(double k) { return k * (9 / 5.0) - 459.67; }
