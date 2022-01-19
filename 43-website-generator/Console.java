@@ -4,7 +4,7 @@ public class Console {
     String line = null;
     do {
       line = System.console().readLine(prompt);
-    } while (Strings.isEmpty(line));
+    } while (line == null || line.isEmpty());
     return line;
   }
 
