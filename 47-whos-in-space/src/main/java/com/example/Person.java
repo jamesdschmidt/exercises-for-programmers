@@ -1,4 +1,3 @@
 package com.example;
 
-public record Person(String craft, String name) {
-}
+record Person(String craft, String name) {}
