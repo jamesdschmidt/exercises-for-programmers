@@ -1,3 +1,3 @@
 package com.example;
 
-public record MainWeather(double temp) {}
+record MainWeather(double temp) {}
