@@ -39,15 +39,15 @@ public class MovieService {
   }
 
   public String movieToString(Movie m) {
-    var s = "Title: " + m.getTitle() + "\n" +
-      "Year: " + m.getYear() + "\n" +
-      "Rating: " + m.getMpaaRating() + "\n" +
-      "Running Time: " + m.getRuntime() + " minutes\n\n" +
-      "Description: " + m.getSynopsis();
+    var s = "Title: " + m.title() + "\n" +
+      "Year: " + m.year() + "\n" +
+      "Rating: " + m.mpaaRating() + "\n" +
+      "Running Time: " + m.runtime() + " minutes\n\n" +
+      "Description: " + m.synopsis();
 
-    if (m.getAudienceScore() > 80) {
+    if (m.audienceScore() > 80) {
       s += "\n\nYou should watch this movie right now!";
-    } else if (m.getAudienceScore() < 50) {
+    } else if (m.audienceScore() < 50) {
       s += "\n\nYou should avoid this movie at all costs!";
     }
 

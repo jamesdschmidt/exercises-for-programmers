@@ -24,7 +24,7 @@ public class MovieCommandLineRunner implements CommandLineRunner {
     String line = null;
     do {
       line = System.console().readLine(prompt);
-    } while (StringUtils.isEmpty(line));
+    } while (StringUtils.hasLength(line));
     return line;
   }
 }
