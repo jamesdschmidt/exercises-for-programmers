@@ -21,10 +21,9 @@ public class MyNotesRunner implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    if (isShow(args)) {
-      show();
-    } else if (isNew(args)) {
-      newNote(args);
+    switch (args[0]) {
+      case SHOW -> show();
+      case NEW -> newNote(args[1]);
     }
   }
 
@@ -32,22 +31,8 @@ public class MyNotesRunner implements CommandLineRunner {
     service.getNotes().forEach(n -> System.out.println(DATE_FORMAT.format(n.getTimestamp()) + " - " + n.getContent()));
   }
 
-  private boolean isShow(String... args) {
-    if (args != null && args.length > 0) {
-      return SHOW.equalsIgnoreCase(args[0]);
-    }
-    return false;
-  }
-
-  private boolean isNew(String... args) {
-    if (args != null && args.length > 1) {
-      return NEW.equalsIgnoreCase(args[0]);
-    }
-    return false;
-  }
-
-  private void newNote(String... args) {
-    if (args != null && args.length > 1) {
+  private void newNote(String note) {
+    if (note != null && !note.isEmpty()) {
       service.newNote(IntStream.range(1, args.length).mapToObj(i -> args[i]).collect(Collectors.joining(" ")));
       System.out.println("Your note was saved.");
     }
