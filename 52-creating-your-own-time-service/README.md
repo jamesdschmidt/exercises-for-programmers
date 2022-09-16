@@ -23,6 +23,6 @@ time-service% curl localhost:8080
 ### How to run
 
 ```zsh
-time-client% mvn vertx:run
-The current time is 22:03:51 MDT April 3 2019.
+time-client % ./mvnw spring-boot:run
+The current time is 05:32:36 UTC September 16 2022.
 ```
