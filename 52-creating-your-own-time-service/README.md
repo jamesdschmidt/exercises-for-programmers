@@ -1,6 +1,6 @@
 # Exercise 52 Creating Your Own Time Service
 
-An HTTP service that serves the current time in UTC. Also a CLI client that shows that time in the current time zone.
+An HTTP service that serves the current time in UTC. Also a CLI client that shows that UTC time.
 
 ## Time-Service
 
@@ -9,7 +9,7 @@ An HTTP service that serves the current time in UTC. Also a CLI client that show
 ```zsh
 time-service % ./mvnw spring-boot:run
 ```
-The service listens on port 8888
+The service listens on port 8080
 
 ### Example Response
 
