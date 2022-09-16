@@ -6,23 +6,23 @@ An HTTP service that serves the current time in UTC. Also a CLI client that show
 
 ### How to start
 
-```bash
-time-service$ mvn vertx:start
+```zsh
+time-service % ./mvnw spring-boot:run
 ```
 The service listens on port 8888
 
 ### Example Response
 
-```bash
-time-service$ curl localhost:8888
-{"currentTime":"2019-04-04T04:03:41.029336Z"}
+```zsh
+time-service% curl localhost:8080
+{"currentTime":"2022-09-16T04:19:01.672552Z"}
 ```
 
 ## Time-Client
 
 ### How to run
 
-```bash
-time-client$ mvn vertx:run
+```zsh
+time-client% mvn vertx:run
 The current time is 22:03:51 MDT April 3 2019.
 ```
