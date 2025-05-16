@@ -1,9 +1,5 @@
 const readline = require('readline');
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+const rl = readline.createInterface(process.stdin, process.stdout);
 
 rl.question('What is the quote? ', (quote) => {
   rl.question('Who said it? ', (author) => {
