@@ -1,10 +1,10 @@
 const readline = require('readline');
 const rl = readline.createInterface(process.stdin, process.stdout);
 
-rl.question('What is the first number? ', (firstAnswer) => {
-  const firstNumber = parseInt(firstAnswer);
-  rl.question('What is the second number? ', (secondAnswer) => {
-    const secondNumber = parseInt(secondAnswer);
+rl.question('What is the first number? ', (answer) => {
+  const firstNumber = parseInt(answer);
+  rl.question('What is the second number? ', (answer) => {
+    const secondNumber = parseInt(answer);
 
     const sum = firstNumber + secondNumber;
     const difference = firstNumber - secondNumber;
